@@ -1,17 +1,9 @@
---[=[
- d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
-88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
-88      88    88    88            odD'      88      88    88 88ooo88 
-88  ooo 88    88    88          .88'        88      88    88 88~~~88 
-88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
- Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
-
-designed using localmaze gui creator
-]=]
-
--- Instances: 23 | Scripts: 1 | Modules: 0 | Tags: 0
+-- TOOLBOX STUDIO LITE ROBLOX BY NARAKU
 local LMG2L = {};
 
+print("TOOLBOX NARAKU - Script Berhasil Dimuat!")
+
+-- ... sisa kode struktur instance kamu ...
 -- Players.EXDestructor01.PlayerGui.ScreenGui
 LMG2L["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
 LMG2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
