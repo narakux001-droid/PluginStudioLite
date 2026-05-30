@@ -1,0 +1,853 @@
+-- ARCHIMEDES PLUGIN BY NARAKU BETA 
+local LMG2L = {};
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui
+LMG2L["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+LMG2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel
+LMG2L["Panel_2"] = Instance.new("Frame", LMG2L["ScreenGui_1"]);
+LMG2L["Panel_2"]["BorderSizePixel"] = 2;
+LMG2L["Panel_2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["Panel_2"]["Size"] = UDim2.new(0, 258, 0, 306);
+LMG2L["Panel_2"]["Position"] = UDim2.new(0, 6, 0, 20);
+LMG2L["Panel_2"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["Panel_2"]["Name"] = [[Panel]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.RenderButton
+LMG2L["RenderButton_3"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["RenderButton_3"]["BorderSizePixel"] = 0;
+LMG2L["RenderButton_3"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["RenderButton_3"]["BackgroundColor3"] = Color3.fromRGB(52, 174, 35);
+LMG2L["RenderButton_3"]["Size"] = UDim2.new(0, 78, 0, 20);
+LMG2L["RenderButton_3"]["Text"] = [[Render]];
+LMG2L["RenderButton_3"]["Name"] = [[RenderButton]];
+LMG2L["RenderButton_3"]["Position"] = UDim2.new(0, 92, 0, 250);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.AngleFrame
+LMG2L["AngleFrame_4"] = Instance.new("Frame", LMG2L["Panel_2"]);
+LMG2L["AngleFrame_4"]["BorderSizePixel"] = 0;
+LMG2L["AngleFrame_4"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["AngleFrame_4"]["Size"] = UDim2.new(0, 60, 0, 60);
+LMG2L["AngleFrame_4"]["Position"] = UDim2.new(0, 30, 0, 122);
+LMG2L["AngleFrame_4"]["BorderColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["AngleFrame_4"]["Name"] = [[AngleFrame]];
+LMG2L["AngleFrame_4"]["BackgroundTransparency"] = 1;
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.AngleFrame.UICorner
+LMG2L["UICorner_5"] = Instance.new("UICorner", LMG2L["AngleFrame_4"]);
+LMG2L["UICorner_5"]["CornerRadius"] = UDim.new(0, 100);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.AngleFrame.UIStroke
+LMG2L["UIStroke_6"] = Instance.new("UIStroke", LMG2L["AngleFrame_4"]);
+LMG2L["UIStroke_6"]["Thickness"] = 3;
+LMG2L["UIStroke_6"]["Color"] = Color3.fromRGB(255, 255, 255);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.AngleFrame.AngleBox
+LMG2L["AngleBox_7"] = Instance.new("TextBox", LMG2L["AngleFrame_4"]);
+LMG2L["AngleBox_7"]["Name"] = [[AngleBox]];
+LMG2L["AngleBox_7"]["BorderSizePixel"] = 2;
+LMG2L["AngleBox_7"]["TextSize"] = 12;
+LMG2L["AngleBox_7"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["AngleBox_7"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["AngleBox_7"]["Size"] = UDim2.new(0, 28, 0, 30);
+LMG2L["AngleBox_7"]["Position"] = UDim2.new(0, 16, 0, 16);
+LMG2L["AngleBox_7"]["BorderColor3"] = Color3.fromRGB(93, 93, 93);
+LMG2L["AngleBox_7"]["Text"] = [[5]];
+LMG2L["AngleBox_7"]["BackgroundTransparency"] = 1;
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.JudulAxis
+LMG2L["JudulAxis_8"] = Instance.new("TextLabel", LMG2L["Panel_2"]);
+LMG2L["JudulAxis_8"]["BorderSizePixel"] = 2;
+LMG2L["JudulAxis_8"]["TextSize"] = 7;
+LMG2L["JudulAxis_8"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["JudulAxis_8"]["BackgroundColor3"] = Color3.fromRGB(38, 38, 38);
+LMG2L["JudulAxis_8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["JudulAxis_8"]["Size"] = UDim2.new(0, 258, 0, 12);
+LMG2L["JudulAxis_8"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["JudulAxis_8"]["Text"] = [[  •   Direction Axis X , Y , Z , X² , Y² , Z² ]];
+LMG2L["JudulAxis_8"]["Name"] = [[JudulAxis]];
+LMG2L["JudulAxis_8"]["Position"] = UDim2.new(0, 0, 0, 32);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Text
+LMG2L["Text_9"] = Instance.new("TextLabel", LMG2L["Panel_2"]);
+LMG2L["Text_9"]["BorderSizePixel"] = 2;
+LMG2L["Text_9"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["Text_9"]["BackgroundColor3"] = Color3.fromRGB(38, 38, 38);
+LMG2L["Text_9"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Text_9"]["Size"] = UDim2.new(0, 128, 0, 24);
+LMG2L["Text_9"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["Text_9"]["Text"] = [[  Enable]];
+LMG2L["Text_9"]["Name"] = [[Text]];
+LMG2L["Text_9"]["Position"] = UDim2.new(0, 130, 0, 166);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Text.ToggleFrame
+LMG2L["ToggleFrame_a"] = Instance.new("Frame", LMG2L["Text_9"]);
+LMG2L["ToggleFrame_a"]["BorderSizePixel"] = 0;
+LMG2L["ToggleFrame_a"]["BackgroundColor3"] = Color3.fromRGB(79, 79, 79);
+LMG2L["ToggleFrame_a"]["Size"] = UDim2.new(0, 44, 0, 20);
+LMG2L["ToggleFrame_a"]["Position"] = UDim2.new(0, 82, 0, 2);
+LMG2L["ToggleFrame_a"]["Name"] = [[ToggleFrame]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Text.ToggleFrame.UICorner
+LMG2L["UICorner_b"] = Instance.new("UICorner", LMG2L["ToggleFrame_a"]);
+LMG2L["UICorner_b"]["CornerRadius"] = UDim.new(0, 100);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Text.ToggleFrame.ToogleButton
+LMG2L["ToogleButton_c"] = Instance.new("TextButton", LMG2L["ToggleFrame_a"]);
+LMG2L["ToogleButton_c"]["BorderSizePixel"] = 0;
+LMG2L["ToogleButton_c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["ToogleButton_c"]["Size"] = UDim2.new(0, 18, 0, 18);
+LMG2L["ToogleButton_c"]["Text"] = [[]];
+LMG2L["ToogleButton_c"]["Name"] = [[ToogleButton]];
+LMG2L["ToogleButton_c"]["Position"] = UDim2.new(0, 1, 0, 1);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Text.ToggleFrame.ToogleButton.UICorner
+LMG2L["UICorner_d"] = Instance.new("UICorner", LMG2L["ToogleButton_c"]);
+LMG2L["UICorner_d"]["CornerRadius"] = UDim.new(0, 100);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.JudulAngle
+LMG2L["JudulAngle_e"] = Instance.new("TextLabel", LMG2L["Panel_2"]);
+LMG2L["JudulAngle_e"]["BorderSizePixel"] = 2;
+LMG2L["JudulAngle_e"]["TextSize"] = 7;
+LMG2L["JudulAngle_e"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["JudulAngle_e"]["BackgroundColor3"] = Color3.fromRGB(38, 38, 38);
+LMG2L["JudulAngle_e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["JudulAngle_e"]["Size"] = UDim2.new(0, 128, 0, 12);
+LMG2L["JudulAngle_e"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["JudulAngle_e"]["Text"] = [[  •   Angle]];
+LMG2L["JudulAngle_e"]["Name"] = [[JudulAngle]];
+LMG2L["JudulAngle_e"]["Position"] = UDim2.new(0, 0, 0, 100);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.RenderAllButton
+LMG2L["RenderAllButton_f"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["RenderAllButton_f"]["BorderSizePixel"] = 0;
+LMG2L["RenderAllButton_f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["RenderAllButton_f"]["BackgroundColor3"] = Color3.fromRGB(60, 200, 40);
+LMG2L["RenderAllButton_f"]["Size"] = UDim2.new(0, 74, 0, 20);
+LMG2L["RenderAllButton_f"]["Text"] = [[Render All]];
+LMG2L["RenderAllButton_f"]["Name"] = [[RenderAllButton]];
+LMG2L["RenderAllButton_f"]["Position"] = UDim2.new(0, 176, 0, 250);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.AxisZ²Button
+LMG2L["AxisZ²Button_10"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["AxisZ²Button_10"]["BorderSizePixel"] = 0;
+LMG2L["AxisZ²Button_10"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["AxisZ²Button_10"]["BackgroundColor3"] = Color3.fromRGB(81, 81, 81);
+LMG2L["AxisZ²Button_10"]["Size"] = UDim2.new(0, 78, 0, 20);
+LMG2L["AxisZ²Button_10"]["Text"] = [[Z²]];
+LMG2L["AxisZ²Button_10"]["Name"] = [[AxisZ²Button]];
+LMG2L["AxisZ²Button_10"]["Position"] = UDim2.new(0, 174, 0, 74);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.AxisYButton
+LMG2L["AxisYButton_11"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["AxisYButton_11"]["BorderSizePixel"] = 0;
+LMG2L["AxisYButton_11"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["AxisYButton_11"]["BackgroundColor3"] = Color3.fromRGB(81, 81, 81);
+LMG2L["AxisYButton_11"]["Size"] = UDim2.new(0, 78, 0, 20);
+LMG2L["AxisYButton_11"]["Text"] = [[Y]];
+LMG2L["AxisYButton_11"]["Name"] = [[AxisYButton]];
+LMG2L["AxisYButton_11"]["Position"] = UDim2.new(0, 90, 0, 50);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Keterangan
+LMG2L["Keterangan_12"] = Instance.new("TextLabel", LMG2L["Panel_2"]);
+LMG2L["Keterangan_12"]["BorderSizePixel"] = 2;
+LMG2L["Keterangan_12"]["TextSize"] = 7;
+LMG2L["Keterangan_12"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["Keterangan_12"]["BackgroundColor3"] = Color3.fromRGB(38, 38, 38);
+LMG2L["Keterangan_12"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Keterangan_12"]["Size"] = UDim2.new(0, 258, 0, 28);
+LMG2L["Keterangan_12"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["Keterangan_12"]["Text"] = [[  •   Plugin Archimedes By Naraku Beta ]];
+LMG2L["Keterangan_12"]["Name"] = [[Keterangan]];
+LMG2L["Keterangan_12"]["Position"] = UDim2.new(0, 0, 0, 278);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.AxisX²Button
+LMG2L["AxisX²Button_13"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["AxisX²Button_13"]["BorderSizePixel"] = 0;
+LMG2L["AxisX²Button_13"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["AxisX²Button_13"]["BackgroundColor3"] = Color3.fromRGB(81, 81, 81);
+LMG2L["AxisX²Button_13"]["Size"] = UDim2.new(0, 78, 0, 20);
+LMG2L["AxisX²Button_13"]["Text"] = [[X²]];
+LMG2L["AxisX²Button_13"]["Name"] = [[AxisX²Button]];
+LMG2L["AxisX²Button_13"]["Position"] = UDim2.new(0, 6, 0, 74);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Text
+LMG2L["Text_14"] = Instance.new("TextLabel", LMG2L["Panel_2"]);
+LMG2L["Text_14"]["BorderSizePixel"] = 2;
+LMG2L["Text_14"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["Text_14"]["BackgroundColor3"] = Color3.fromRGB(38, 38, 38);
+LMG2L["Text_14"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Text_14"]["Size"] = UDim2.new(0, 258, 0, 34);
+LMG2L["Text_14"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["Text_14"]["Text"] = [[  Jumlah Object]];
+LMG2L["Text_14"]["Name"] = [[Text]];
+LMG2L["Text_14"]["Position"] = UDim2.new(0, 0, 0, 206);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Text.Jumlah
+LMG2L["Jumlah_15"] = Instance.new("TextBox", LMG2L["Text_14"]);
+LMG2L["Jumlah_15"]["Name"] = [[Jumlah]];
+LMG2L["Jumlah_15"]["BorderSizePixel"] = 2;
+LMG2L["Jumlah_15"]["TextSize"] = 10;
+LMG2L["Jumlah_15"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Jumlah_15"]["BackgroundColor3"] = Color3.fromRGB(54, 54, 54);
+LMG2L["Jumlah_15"]["Size"] = UDim2.new(0, 154, 0, 26);
+LMG2L["Jumlah_15"]["Position"] = UDim2.new(0, 100, 0, 4);
+LMG2L["Jumlah_15"]["BorderColor3"] = Color3.fromRGB(65, 64, 64);
+LMG2L["Jumlah_15"]["Text"] = [[]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.AxisY²Button
+LMG2L["AxisY²Button_16"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["AxisY²Button_16"]["BorderSizePixel"] = 0;
+LMG2L["AxisY²Button_16"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["AxisY²Button_16"]["BackgroundColor3"] = Color3.fromRGB(81, 81, 81);
+LMG2L["AxisY²Button_16"]["Size"] = UDim2.new(0, 78, 0, 20);
+LMG2L["AxisY²Button_16"]["Text"] = [[Y²]];
+LMG2L["AxisY²Button_16"]["Name"] = [[AxisY²Button]];
+LMG2L["AxisY²Button_16"]["Position"] = UDim2.new(0, 90, 0, 74);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.JudulAmount
+LMG2L["JudulAmount_17"] = Instance.new("TextLabel", LMG2L["Panel_2"]);
+LMG2L["JudulAmount_17"]["BorderSizePixel"] = 2;
+LMG2L["JudulAmount_17"]["TextSize"] = 7;
+LMG2L["JudulAmount_17"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["JudulAmount_17"]["BackgroundColor3"] = Color3.fromRGB(38, 38, 38);
+LMG2L["JudulAmount_17"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["JudulAmount_17"]["Size"] = UDim2.new(0, 258, 0, 12);
+LMG2L["JudulAmount_17"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["JudulAmount_17"]["Text"] = [[  •   Amount ( jumlah object )]];
+LMG2L["JudulAmount_17"]["Name"] = [[JudulAmount]];
+LMG2L["JudulAmount_17"]["Position"] = UDim2.new(0, 0, 0, 192);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Text
+LMG2L["Text_18"] = Instance.new("TextLabel", LMG2L["Panel_2"]);
+LMG2L["Text_18"]["BorderSizePixel"] = 2;
+LMG2L["Text_18"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["Text_18"]["BackgroundColor3"] = Color3.fromRGB(38, 38, 38);
+LMG2L["Text_18"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Text_18"]["Size"] = UDim2.new(0, 128, 0, 24);
+LMG2L["Text_18"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["Text_18"]["Text"] = [[  Flip Axis]];
+LMG2L["Text_18"]["Name"] = [[Text]];
+LMG2L["Text_18"]["Position"] = UDim2.new(0, 130, 0, 114);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Text.ToggleFrame
+LMG2L["ToggleFrame_19"] = Instance.new("Frame", LMG2L["Text_18"]);
+LMG2L["ToggleFrame_19"]["BorderSizePixel"] = 0;
+LMG2L["ToggleFrame_19"]["BackgroundColor3"] = Color3.fromRGB(79, 79, 79);
+LMG2L["ToggleFrame_19"]["Size"] = UDim2.new(0, 44, 0, 20);
+LMG2L["ToggleFrame_19"]["Position"] = UDim2.new(0, 82, 0, 2);
+LMG2L["ToggleFrame_19"]["Name"] = [[ToggleFrame]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Text.ToggleFrame.UICorner
+LMG2L["UICorner_1a"] = Instance.new("UICorner", LMG2L["ToggleFrame_19"]);
+LMG2L["UICorner_1a"]["CornerRadius"] = UDim.new(0, 100);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Text.ToggleFrame.ToogleButton
+LMG2L["ToogleButton_1b"] = Instance.new("TextButton", LMG2L["ToggleFrame_19"]);
+LMG2L["ToogleButton_1b"]["BorderSizePixel"] = 0;
+LMG2L["ToogleButton_1b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["ToogleButton_1b"]["Size"] = UDim2.new(0, 18, 0, 18);
+LMG2L["ToogleButton_1b"]["Text"] = [[]];
+LMG2L["ToogleButton_1b"]["Name"] = [[ToogleButton]];
+LMG2L["ToogleButton_1b"]["Position"] = UDim2.new(0, 1, 0, 1);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Text.ToggleFrame.ToogleButton.UICorner
+LMG2L["UICorner_1c"] = Instance.new("UICorner", LMG2L["ToogleButton_1b"]);
+LMG2L["UICorner_1c"]["CornerRadius"] = UDim.new(0, 100);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.AxisZButton
+LMG2L["AxisZButton_1d"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["AxisZButton_1d"]["BorderSizePixel"] = 0;
+LMG2L["AxisZButton_1d"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["AxisZButton_1d"]["BackgroundColor3"] = Color3.fromRGB(81, 81, 81);
+LMG2L["AxisZButton_1d"]["Size"] = UDim2.new(0, 78, 0, 20);
+LMG2L["AxisZButton_1d"]["Text"] = [[Z]];
+LMG2L["AxisZButton_1d"]["Name"] = [[AxisZButton]];
+LMG2L["AxisZButton_1d"]["Position"] = UDim2.new(0, 174, 0, 50);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.AxisXButton
+LMG2L["AxisXButton_1e"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["AxisXButton_1e"]["BorderSizePixel"] = 0;
+LMG2L["AxisXButton_1e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["AxisXButton_1e"]["BackgroundColor3"] = Color3.fromRGB(81, 81, 81);
+LMG2L["AxisXButton_1e"]["Size"] = UDim2.new(0, 78, 0, 20);
+LMG2L["AxisXButton_1e"]["Text"] = [[X]];
+LMG2L["AxisXButton_1e"]["Name"] = [[AxisXButton]];
+LMG2L["AxisXButton_1e"]["Position"] = UDim2.new(0, 6, 0, 50);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.JudulControl
+LMG2L["JudulControl_1f"] = Instance.new("TextLabel", LMG2L["Panel_2"]);
+LMG2L["JudulControl_1f"]["BorderSizePixel"] = 2;
+LMG2L["JudulControl_1f"]["TextSize"] = 7;
+LMG2L["JudulControl_1f"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["JudulControl_1f"]["BackgroundColor3"] = Color3.fromRGB(38, 38, 38);
+LMG2L["JudulControl_1f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["JudulControl_1f"]["Size"] = UDim2.new(0, 128, 0, 12);
+LMG2L["JudulControl_1f"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["JudulControl_1f"]["Text"] = [[  •   Control]];
+LMG2L["JudulControl_1f"]["Name"] = [[JudulControl]];
+LMG2L["JudulControl_1f"]["Position"] = UDim2.new(0, 130, 0, 100);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.CloseButton
+LMG2L["CloseButton_20"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["CloseButton_20"]["BorderSizePixel"] = 0;
+LMG2L["CloseButton_20"]["TextSize"] = 11;
+LMG2L["CloseButton_20"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["CloseButton_20"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["CloseButton_20"]["ZIndex"] = 2;
+LMG2L["CloseButton_20"]["BackgroundTransparency"] = 1;
+LMG2L["CloseButton_20"]["Size"] = UDim2.new(0, 30, 0, 30);
+LMG2L["CloseButton_20"]["Text"] = [[🫪]];
+LMG2L["CloseButton_20"]["Name"] = [[CloseButton]];
+LMG2L["CloseButton_20"]["Position"] = UDim2.new(0, 228, 0, 0);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Title
+LMG2L["Title_21"] = Instance.new("TextLabel", LMG2L["Panel_2"]);
+LMG2L["Title_21"]["BorderSizePixel"] = 2;
+LMG2L["Title_21"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["Title_21"]["BackgroundColor3"] = Color3.fromRGB(38, 38, 38);
+LMG2L["Title_21"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Title_21"]["Size"] = UDim2.new(0, 258, 0, 30);
+LMG2L["Title_21"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["Title_21"]["Text"] = [[              Archimedes Beta]];
+LMG2L["Title_21"]["Name"] = [[Title]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Title.ImageLabel
+LMG2L["ImageLabel_22"] = Instance.new("ImageLabel", LMG2L["Title_21"]);
+LMG2L["ImageLabel_22"]["BorderSizePixel"] = 0;
+LMG2L["ImageLabel_22"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+-- LMG2L["ImageLabel_22"]["ImageContent"] = ;
+LMG2L["ImageLabel_22"]["Image"] = [[rbxassetid://85521644284429]];
+LMG2L["ImageLabel_22"]["Size"] = UDim2.new(0, 24, 0, 22);
+LMG2L["ImageLabel_22"]["Position"] = UDim2.new(0, 5, 0, 4);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.UndoButton
+LMG2L["UndoButton_23"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["UndoButton_23"]["BorderSizePixel"] = 0;
+LMG2L["UndoButton_23"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["UndoButton_23"]["BackgroundColor3"] = Color3.fromRGB(189, 0, 0);
+LMG2L["UndoButton_23"]["Size"] = UDim2.new(0, 76, 0, 20);
+LMG2L["UndoButton_23"]["Text"] = [[Undo]];
+LMG2L["UndoButton_23"]["Name"] = [[UndoButton]];
+LMG2L["UndoButton_23"]["Position"] = UDim2.new(0, 8, 0, 250);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Text
+LMG2L["Text_24"] = Instance.new("TextLabel", LMG2L["Panel_2"]);
+LMG2L["Text_24"]["BorderSizePixel"] = 2;
+LMG2L["Text_24"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["Text_24"]["BackgroundColor3"] = Color3.fromRGB(38, 38, 38);
+LMG2L["Text_24"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Text_24"]["Size"] = UDim2.new(0, 128, 0, 24);
+LMG2L["Text_24"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["Text_24"]["Text"] = [[  Swap Sides]];
+LMG2L["Text_24"]["Name"] = [[Text]];
+LMG2L["Text_24"]["Position"] = UDim2.new(0, 130, 0, 140);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Text.ToggleFrame
+LMG2L["ToggleFrame_25"] = Instance.new("Frame", LMG2L["Text_24"]);
+LMG2L["ToggleFrame_25"]["BorderSizePixel"] = 0;
+LMG2L["ToggleFrame_25"]["BackgroundColor3"] = Color3.fromRGB(79, 79, 79);
+LMG2L["ToggleFrame_25"]["Size"] = UDim2.new(0, 44, 0, 20);
+LMG2L["ToggleFrame_25"]["Position"] = UDim2.new(0, 82, 0, 2);
+LMG2L["ToggleFrame_25"]["Name"] = [[ToggleFrame]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Text.ToggleFrame.UICorner
+LMG2L["UICorner_26"] = Instance.new("UICorner", LMG2L["ToggleFrame_25"]);
+LMG2L["UICorner_26"]["CornerRadius"] = UDim.new(0, 100);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Text.ToggleFrame.ToogleButton
+LMG2L["ToogleButton_27"] = Instance.new("TextButton", LMG2L["ToggleFrame_25"]);
+LMG2L["ToogleButton_27"]["BorderSizePixel"] = 0;
+LMG2L["ToogleButton_27"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["ToogleButton_27"]["Size"] = UDim2.new(0, 18, 0, 18);
+LMG2L["ToogleButton_27"]["Text"] = [[]];
+LMG2L["ToogleButton_27"]["Name"] = [[ToogleButton]];
+LMG2L["ToogleButton_27"]["Position"] = UDim2.new(0, 1, 0, 1);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Text.ToggleFrame.ToogleButton.UICorner
+LMG2L["UICorner_28"] = Instance.new("UICorner", LMG2L["ToogleButton_27"]);
+LMG2L["UICorner_28"]["CornerRadius"] = UDim.new(0, 100);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.PanahButton
+LMG2L["PanahButton_29"] = Instance.new("TextButton", LMG2L["ScreenGui_1"]);
+LMG2L["PanahButton_29"]["TextSize"] = 12;
+LMG2L["PanahButton_29"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["PanahButton_29"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["PanahButton_29"]["BackgroundTransparency"] = 0.2;
+LMG2L["PanahButton_29"]["Size"] = UDim2.new(0, 20, 0, 28);
+LMG2L["PanahButton_29"]["Text"] = [[<]];
+LMG2L["PanahButton_29"]["Name"] = [[PanahButton]];
+LMG2L["PanahButton_29"]["Position"] = UDim2.new(0, 268, 0, 298);
+
+-- ====================================================================
+-- SYSTEM MAIN PANEL INTERACTION (LOCAL SCRIPT)
+-- ====================================================================
+
+local TweenService = game:GetService("TweenService")
+
+-- 1. Referensi Objek Berdasarkan Struktur LMG2L Terbaru Anda
+local screenGui     = LMG2L["ScreenGui_1"]
+local panel         = LMG2L["Panel_2"]
+local closeButton   = LMG2L["CloseButton_20"]
+local panahButton   = LMG2L["PanahButton_29"]
+
+-- 2. Konfigurasi Animasi Tween (Mulus & Responsif)
+local tweenInfo = TweenInfo.new(
+	0.4,                           -- Durasi pergerakan (detik)
+	Enum.EasingStyle.Quad,         -- Gaya pergerakan transisi mulus
+	Enum.EasingDirection.Out       -- Efek melambat secara halus di akhir
+)
+
+-- 3. Kalkulasi Koordinasi Posisi Dinamis (Buka & Sembunyi)
+-- Posisi awal saat panel aktif terlihat di layar
+local posisiPanelBuka  = UDim2.new(0, 6, 0, 20)
+-- Menggeser panel sepenuhnya ke sebelah kiri layar (ditambah offset pengaman 10 pixel)
+local posisiPanelTutup = UDim2.new(0, -panel.Size.X.Offset - 10, 0, 20)
+
+-- Koordinat letak tombol panah/toggle pendukung
+local posisiPanahBuka  = UDim2.new(0, 268, 0, 298)
+-- Menggeser tombol panah merapat ke tepi kiri layar saat panel bersembunyi
+local posisiPanahTutup = UDim2.new(0, 6, 0, 298) 
+
+local panelTerbuka = true
+
+-- FUNCTION 1: Mekanisme Slide Toggle Buka/Tutup Panel
+local function togglePanel()
+	if panelTerbuka then
+		-- Menjalankan animasi menyembunyikan sasis panel ke kiri layar
+		TweenService:Create(panel, tweenInfo, {Position = posisiPanelTutup}):Play()
+		TweenService:Create(panahButton, tweenInfo, {Position = posisiPanahTutup}):Play()
+		panahButton.Text = ">"
+		panelTerbuka = false
+		
+		-- Opsional: Panggil fungsi pembersihan preview di sini jika Anda menggabungkannya dengan engine inti
+		if typeof(ClearVisuals) == "function" then ClearVisuals() end
+	else
+		-- Menjalankan animasi mengembalikan sasis panel ke posisi semula (terbuka)
+		TweenService:Create(panel, tweenInfo, {Position = posisiPanelBuka}):Play()
+		TweenService:Create(panahButton, tweenInfo, {Position = posisiPanahBuka}):Play()
+		panahButton.Text = "<"
+		panelTerbuka = true
+		
+		-- Opsional: Panggil kembali fungsi kalkulasi rendering realtime saat panel dibuka
+		if typeof(UpdateVisualSelection) == "function" then UpdateVisualSelection() end
+	end
+end
+
+-- Hubungkan interaksi klik mouse tombol panah ke fungsi toggle
+panahButton.MouseButton1Click:Connect(togglePanel)
+
+-- FUNCTION 2: Mekanisme Penutupan Permanen (Menghapus Seluruh ScreenGui)
+closeButton.MouseButton1Click:Connect(function()
+	-- Bersihkan dependensi visual sebelum UI dihancurkan secara total
+	if typeof(ClearVisuals) == "function" then ClearVisuals() end
+	
+	screenGui:Destroy()
+end)
+
+-- ====================================================================
+-- FULL BACKEND SYSTEM ARCHIMEDES BY NARAKU (LOCAL SCRIPT) - FINAL FIX 100%
+-- ====================================================================
+
+local TweenService = game:GetService("TweenService")
+local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+
+-- REFRENSASI OBJEK DARI STRUKTUR UI ANDA (LMG2L)
+local screenGui     = LMG2L["ScreenGui_1"]
+local panel         = LMG2L["Panel_2"]
+local closeButton   = LMG2L["CloseButton_20"]
+local panahButton   = LMG2L["PanahButton_29"]
+
+-- Kategori: Direction Axis Buttons
+local axisButtons = {
+	["X"]  = LMG2L["AxisXButton_1e"],
+	["Y"]  = LMG2L["AxisYButton_11"],
+	["Z"]  = LMG2L["AxisZButton_1d"],
+	["X²"] = LMG2L["AxisX²Button_13"],
+	["Y²"] = LMG2L["AxisY²Button_16"],
+	["Z²"] = LMG2L["AxisZ²Button_10"]
+}
+
+-- Kategori: Angle & Controls
+local angleBox      = LMG2L["AngleBox_7"]
+local uiStrokeAngle = LMG2L["UIStroke_6"]
+local amountBox     = LMG2L["Jumlah_15"]
+
+-- Komponen Sakelar Toggle
+local toggleComponents = {
+	["FlipAxis"]  = LMG2L["ToogleButton_1b"],
+	["SwapSides"] = LMG2L["ToogleButton_27"],
+	["Enabled"]   = LMG2L["ToogleButton_c"]
+}
+
+-- Kategori: Action Buttons
+local undoButton      = LMG2L["UndoButton_23"]
+local renderButton    = LMG2L["RenderButton_3"]
+local renderAllButton = LMG2L["RenderAllButton_f"]
+
+-- ====================================================================
+-- STATE & SETTINGS DATA
+-- ====================================================================
+local CurrentSettings = {
+	Direction = "X",
+	Angle = 5,
+	FlipAxis = false,
+	SwapSides = false,
+	Enabled = true,
+	Amount = 1
+}
+
+local SelectedPart = nil
+local PreviewPart = nil
+local RenderHistory = {}     -- Menyimpan referensi part individual atau folder untuk Undo
+local ActiveRenderFolder = nil -- Menjaga agar render bertahap tetap masuk di folder yang sama
+local FolderCounter = 1
+local panelTerbuka = true     -- FIXED: Status pelindung panel untuk memblokir klik mouse
+
+local COLOR_ACTIVE = Color3.fromRGB(0, 162, 255)     
+local COLOR_NORMAL = Color3.fromRGB(81, 81, 81)      
+local BG_TOGGLE_ON = Color3.fromRGB(52, 174, 35)     
+local BG_TOGGLE_OFF = Color3.fromRGB(79, 79, 79)    
+
+amountBox.Text = ""
+amountBox.PlaceholderText = "1"
+angleBox.Text = "5"
+
+-- ====================================================================
+-- CORE MATHEMATICS ENGINE (FIXED FLIP AXIS & SWAP SIDES)
+-- ====================================================================
+
+local function CalculateCFrame(baseCFrame, size, direction, angle, flip, swap)
+	local radAngle = math.rad(angle)
+	if flip then radAngle = -radAngle end
+
+	local rotation = CFrame.identity
+	local offset = Vector3.zero
+
+	-- Kalkulasi matematika sasis edge-to-edge roblox murni
+	if direction == "X" then
+		rotation = CFrame.Angles(radAngle, 0, 0)
+		offset = Vector3.new(0, 0, swap and -size.Z or size.Z)
+	elseif direction == "X²" then
+		rotation = CFrame.Angles(-radAngle, 0, 0)
+		offset = Vector3.new(0, 0, swap and size.Z or -size.Z)
+	elseif direction == "Y" then
+		rotation = CFrame.Angles(0, radAngle, 0)
+		offset = Vector3.new(swap and -size.X or size.X, 0, 0)
+	elseif direction == "Y²" then
+		rotation = CFrame.Angles(0, -radAngle, 0)
+		offset = Vector3.new(swap and size.X or -size.X, 0, 0)
+	elseif direction == "Z" then
+		rotation = CFrame.Angles(0, 0, radAngle)
+		offset = Vector3.new(swap and -size.Y or size.Y, 0, 0)
+	elseif direction == "Z²" then
+		rotation = CFrame.Angles(0, 0, -radAngle)
+		offset = Vector3.new(swap and size.Y or -size.Y, 0, 0)
+	end
+
+	-- Eksekusi pergeseran pivot sasis melingkar luar/dalam secara presisi
+	return baseCFrame * CFrame.new(offset / 2) * rotation * CFrame.new(offset / 2)
+end
+
+-- ====================================================================
+-- VISUAL PREVIEW & SELECTION CONTROLLER (FIXED WORKFLOW)
+-- ====================================================================
+
+local function ClearPreview()
+	if PreviewPart then
+		PreviewPart:Destroy()
+		PreviewPart = nil
+	end
+end
+
+local function UpdatePreview()
+	ClearPreview()
+	-- Jamin PREVIEW HANYA ADA SAAT ENABLED = TRUE DAN PANEL SEDANG TERBUKA
+	if not CurrentSettings.Enabled or not panelTerbuka or not SelectedPart then return end
+
+	PreviewPart = SelectedPart:Clone()
+	PreviewPart.Name = "Archimedes_Preview"
+	PreviewPart.Transparency = 0.5
+	PreviewPart.Color = Color3.fromRGB(0, 255, 100) 
+	PreviewPart.CanCollide = false
+	PreviewPart.Anchored = true
+	
+	-- Bersihkan asset script di dalam preview clone
+	for _, desc in pairs(PreviewPart:GetDescendants()) do
+		if desc:IsA("BaseScript") then desc:Destroy() end
+	end
+
+	PreviewPart.CFrame = CalculateCFrame(
+		SelectedPart.CFrame, 
+		SelectedPart.Size, 
+		CurrentSettings.Direction, 
+		CurrentSettings.Angle, 
+		CurrentSettings.FlipAxis, 
+		CurrentSettings.SwapSides
+	)
+	PreviewPart.Parent = Workspace
+end
+
+-- Deteksi Seleksi Objek Klik Mouse Player
+Mouse.Button1Down:Connect(function()
+	-- FIX: JIKA ENABLED OFF ATAU PANEL LAGI DITUTUP, BLOCK SELEKSI TOTAL (Kembali ke fungsi bawaan Studio)
+	if not CurrentSettings.Enabled or not panelTerbuka then 
+		return 
+	end
+
+	local target = Mouse.Target
+	if target and target:IsA("BasePart") and not target:IsDescendantOf(screenGui) then
+		-- Jamin Baseplate atau Preview tidak ikut terseleksi secara tidak sengaja
+		if target.Name ~= "Archimedes_Preview" and target.Name ~= "Baseplate" then
+			SelectedPart = target
+			ActiveRenderFolder = nil -- Reset folder aktif karena user memilih part baru
+			UpdatePreview()
+		end
+	end
+end)
+
+-- ====================================================================
+-- INTERACTION CONTROLLER & TOGGLE ANIMATION
+-- ====================================================================
+
+local function updateAxisUI(chosenAxis)
+	CurrentSettings.Direction = chosenAxis
+	for axisName, button in pairs(axisButtons) do
+		button.BackgroundColor3 = (axisName == chosenAxis) and COLOR_ACTIVE or COLOR_NORMAL
+	end
+end
+
+for axisName, button in pairs(axisButtons) do
+	button.MouseButton1Click:Connect(function()
+		updateAxisUI(axisName)
+		UpdatePreview()
+	end)
+end
+updateAxisUI("X")
+
+local function setupPureToggle(toggleButton, settingName, defaultState)
+	CurrentSettings[settingName] = defaultState
+	local parentFrame = toggleButton.Parent
+	local toggleTweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+	
+	local function refreshToggleVisual(animate)
+		local state = CurrentSettings[settingName]
+		local targetPosition = state and UDim2.new(0, 25, 0, 1) or UDim2.new(0, 1, 0, 1)
+		local targetFrameColor = state and BG_TOGGLE_ON or BG_TOGGLE_OFF
+		
+		if animate then
+			TweenService:Create(toggleButton, toggleTweenInfo, {Position = targetPosition}):Play()
+			if parentFrame and parentFrame:IsA("Frame") then
+				TweenService:Create(parentFrame, toggleTweenInfo, {BackgroundColor3 = targetFrameColor}):Play()
+			end
+		else
+			toggleButton.Position = targetPosition
+			if parentFrame and parentFrame:IsA("Frame") then parentFrame.BackgroundColor3 = targetFrameColor end
+		end
+	end
+	
+	refreshToggleVisual(false)
+
+	toggleButton.MouseButton1Click:Connect(function()
+		CurrentSettings[settingName] = not CurrentSettings[settingName]
+		refreshToggleVisual(true)
+		
+		if settingName == "Enabled" then
+			task.wait(0.02)
+			if not CurrentSettings.Enabled then
+				ClearPreview() -- FIX: Preview lenyap seketika jika Enabled OFF
+				SelectedPart = nil
+				ActiveRenderFolder = nil
+			else
+				UpdatePreview() -- FIX: Preview muncul kembali jika Enabled ON
+			end
+		else
+			UpdatePreview() -- Sinkronisasi real-time untuk Flip Axis & Swap Sides
+		end
+	end)
+end
+
+setupPureToggle(toggleComponents["FlipAxis"], "FlipAxis", false)
+setupPureToggle(toggleComponents["SwapSides"], "SwapSides", false)
+setupPureToggle(toggleComponents["Enabled"], "Enabled", true)
+
+angleBox:GetPropertyChangedSignal("Text"):Connect(function()
+	local val = tonumber(angleBox.Text) or 0
+	CurrentSettings.Angle = val
+	local ClampedAngle = math.clamp(math.abs(val), 0, 360)
+	uiStrokeAngle.Color = Color3.fromHSV(0.6, ClampedAngle / 360, 1)
+	UpdatePreview()
+end)
+
+amountBox:GetPropertyChangedSignal("Text"):Connect(function()
+	local val = tonumber(amountBox.Text)
+	CurrentSettings.Amount = val and math.clamp(math.floor(val), 1, 500) or 1
+end)
+
+-- ====================================================================
+-- RENDER ENGINE ACTIONS (BERTAHAP DALAM 1 FOLDER & AUTO FOCUS PREVIEW)
+-- ====================================================================
+
+local function GetMainFolder()
+	local mainFolder = Workspace:FindFirstChild("Archimedes By Naraku")
+	if not mainFolder then
+		mainFolder = Instance.new("Folder", Workspace)
+		mainFolder.Name = "Archimedes By Naraku"
+	end
+	return mainFolder
+end
+
+local function ExecuteRender(renderAllMode)
+	-- Jamin fungsionalitas render tidak berjalan jika Enabled OFF atau Panel tertutup
+	if not SelectedPart or not CurrentSettings.Enabled or not panelTerbuka then return end
+	ClearPreview()
+
+	local mainFolder = GetMainFolder()
+	
+	-- Jika belum ada folder aktif untuk sesi ini, buat baru. Jika sudah ada, pakai yang lama.
+	if not ActiveRenderFolder or not ActiveRenderFolder.Parent then
+		ActiveRenderFolder = Instance.new("Folder", mainFolder)
+		ActiveRenderFolder.Name = "Archimedes_Group_" .. tostring(FolderCounter)
+		FolderCounter = FolderCounter + 1
+		table.insert(RenderHistory, ActiveRenderFolder)
+	end
+
+	local loops = 1
+	if renderAllMode then
+		local absAngle = math.abs(CurrentSettings.Angle)
+		loops = (absAngle > 0) and math.floor(360 / absAngle) or 1
+	else
+		loops = CurrentSettings.Amount
+	end
+
+	local nextCFrame = SelectedPart.CFrame
+	local lastRenderedPart = nil
+
+	for i = 1, loops do
+		local newPart = SelectedPart:Clone()
+		newPart.Parent = ActiveRenderFolder
+		newPart.Anchored = true
+		
+		-- Kalkulasi posisi sasis berdasarkan pengaturan sumbu terbaru
+		nextCFrame = CalculateCFrame(
+			nextCFrame, 
+			SelectedPart.Size, 
+			CurrentSettings.Direction, 
+			CurrentSettings.Angle, 
+			CurrentSettings.FlipAxis, 
+			CurrentSettings.SwapSides
+		)
+		
+		newPart.CFrame = nextCFrame
+		lastRenderedPart = newPart
+	end
+	
+	-- Otomatis memindahkan fokus basis ke part paling ujung hasil render
+	if lastRenderedPart then
+		SelectedPart = lastRenderedPart
+	end
+	
+	-- Preview transparan hijau otomatis langsung berpindah maju ke ujung part baru
+	UpdatePreview()
+end
+
+renderButton.MouseButton1Click:Connect(function()
+	ExecuteRender(false) -- Render bertahap (Maju menempel sasis tanpa membuat folder baru terus-menerus)
+end)
+
+renderAllButton.MouseButton1Click:Connect(function()
+	ExecuteRender(true)  -- Langsung melingkar penuh 360 derajat
+end)
+
+undoButton.MouseButton1Click:Connect(function()
+	if #RenderHistory > 0 then
+		local lastFolder = table.remove(RenderHistory, #RenderHistory)
+		if lastFolder then lastFolder:Destroy() end
+		FolderCounter = math.max(1, FolderCounter - 1)
+		
+		-- Bersihkan sisa tracking data
+		SelectedPart = nil
+		ActiveRenderFolder = nil
+		ClearPreview()
+	end
+end)
+
+-- ====================================================================
+-- PANEL TWEEN SLIDE TOGGLE MECHANISM (FIXED STATUS GLOBAL BLOCKER)
+-- ====================================================================
+local panelTweenInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+local posisiPanelBuka = UDim2.new(0, 6, 0, 20)
+local posisiPanelTutup = UDim2.new(0, -panel.Size.X.Offset - 10, 0, 20)
+local posisiPanahBuka = UDim2.new(0, 268, 0, 298)
+local posisiPanahTutup = UDim2.new(0, 6, 0, 298)
+
+panahButton.MouseButton1Click:Connect(function()
+	if panelTerbuka then
+		-- Sembunyikan panel dan kunci/matikan preview
+		panelTerbuka = false
+		ClearPreview()
+		
+		TweenService:Create(panel, panelTweenInfo, {Position = posisiPanelTutup}):Play()
+		TweenService:Create(panahButton, panelTweenInfo, {Position = posisiPanahTutup}):Play()
+		panahButton.Text = ">"
+	else
+		-- Buka panel kembali dan hidupkan visual jika ada part terpilih
+		panelTerbuka = true
+		
+		TweenService:Create(panel, panelTweenInfo, {Position = posisiPanelBuka}):Play()
+		TweenService:Create(panahButton, panelTweenInfo, {Position = posisiPanahBuka}):Play()
+		panahButton.Text = "<"
+		UpdatePreview()
+	end
+end)
+
+closeButton.MouseButton1Click:Connect(function()
+	ClearPreview() -- FIX: Hapus preview instan saat UI di-destroy
+	screenGui:Destroy()
+end)
+
+return LMG2L["ScreenGui_1"], require;
