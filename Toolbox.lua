@@ -1,0 +1,1115 @@
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+
+designed using localmaze gui creator
+]=]
+
+-- Instances: 23 | Scripts: 1 | Modules: 0 | Tags: 0
+local LMG2L = {};
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui
+LMG2L["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+LMG2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel
+LMG2L["Panel_2"] = Instance.new("Frame", LMG2L["ScreenGui_1"]);
+LMG2L["Panel_2"]["BorderSizePixel"] = 2;
+LMG2L["Panel_2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["Panel_2"]["Size"] = UDim2.new(0, 260, 0, 331);
+LMG2L["Panel_2"]["Position"] = UDim2.new(0, 5, 0, 20);
+LMG2L["Panel_2"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["Panel_2"]["Name"] = [[Panel]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ModelButton
+LMG2L["ModelButton_3"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["ModelButton_3"]["BorderSizePixel"] = 0;
+LMG2L["ModelButton_3"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["ModelButton_3"]["BackgroundColor3"] = Color3.fromRGB(36, 36, 36);
+LMG2L["ModelButton_3"]["Size"] = UDim2.new(0, 88, 0, 20);
+LMG2L["ModelButton_3"]["BorderColor3"] = Color3.fromRGB(102, 102, 102);
+LMG2L["ModelButton_3"]["Text"] = [[MODEL]];
+LMG2L["ModelButton_3"]["Name"] = [[ModelButton]];
+LMG2L["ModelButton_3"]["Position"] = UDim2.new(0, 0, 0, 58);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.AssetId
+LMG2L["AssetId_4"] = Instance.new("TextBox", LMG2L["Panel_2"]);
+LMG2L["AssetId_4"]["Name"] = [[AssetId]];
+LMG2L["AssetId_4"]["BorderSizePixel"] = 2;
+LMG2L["AssetId_4"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["AssetId_4"]["BackgroundColor3"] = Color3.fromRGB(36, 36, 36);
+LMG2L["AssetId_4"]["Size"] = UDim2.new(0, 260, 0, 30);
+LMG2L["AssetId_4"]["Position"] = UDim2.new(0, 0, 0, 300);
+LMG2L["AssetId_4"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["AssetId_4"]["Text"] = [[Masukan ID Asset..]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.AssetId.SaveButton
+LMG2L["SaveButton_5"] = Instance.new("TextButton", LMG2L["AssetId_4"]);
+LMG2L["SaveButton_5"]["BorderSizePixel"] = 0;
+LMG2L["SaveButton_5"]["TextSize"] = 6;
+LMG2L["SaveButton_5"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["SaveButton_5"]["BackgroundColor3"] = Color3.fromRGB(29, 171, 223);
+LMG2L["SaveButton_5"]["Size"] = UDim2.new(0, 36, 0, 20);
+LMG2L["SaveButton_5"]["Text"] = [[SAVE]];
+LMG2L["SaveButton_5"]["Name"] = [[SaveButton]];
+LMG2L["SaveButton_5"]["Position"] = UDim2.new(0, 219, 0, 5);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.DecalButton
+LMG2L["DecalButton_6"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["DecalButton_6"]["BorderSizePixel"] = 0;
+LMG2L["DecalButton_6"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["DecalButton_6"]["BackgroundColor3"] = Color3.fromRGB(36, 36, 36);
+LMG2L["DecalButton_6"]["Size"] = UDim2.new(0, 88, 0, 20);
+LMG2L["DecalButton_6"]["BorderColor3"] = Color3.fromRGB(102, 102, 102);
+LMG2L["DecalButton_6"]["Text"] = [[DECAL]];
+LMG2L["DecalButton_6"]["Name"] = [[DecalButton]];
+LMG2L["DecalButton_6"]["Position"] = UDim2.new(0, 86, 0, 58);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.AudioButton
+LMG2L["AudioButton_7"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["AudioButton_7"]["BorderSizePixel"] = 0;
+LMG2L["AudioButton_7"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["AudioButton_7"]["BackgroundColor3"] = Color3.fromRGB(36, 36, 36);
+LMG2L["AudioButton_7"]["Size"] = UDim2.new(0, 86, 0, 20);
+LMG2L["AudioButton_7"]["BorderColor3"] = Color3.fromRGB(102, 102, 102);
+LMG2L["AudioButton_7"]["Text"] = [[AUDIO]];
+LMG2L["AudioButton_7"]["Name"] = [[AudioButton]];
+LMG2L["AudioButton_7"]["Position"] = UDim2.new(0, 174, 0, 58);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Title
+LMG2L["Title_8"] = Instance.new("TextLabel", LMG2L["Panel_2"]);
+LMG2L["Title_8"]["BorderSizePixel"] = 2;
+LMG2L["Title_8"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["Title_8"]["BackgroundColor3"] = Color3.fromRGB(22, 22, 22);
+LMG2L["Title_8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Title_8"]["Size"] = UDim2.new(0, 260, 0, 24);
+LMG2L["Title_8"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["Title_8"]["Text"] = [[             TOOLBOX  | NARAKU BETA]];
+LMG2L["Title_8"]["Name"] = [[Title]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Title.ImageLabel
+LMG2L["ImageLabel_9"] = Instance.new("ImageLabel", LMG2L["Title_8"]);
+LMG2L["ImageLabel_9"]["BorderSizePixel"] = 0;
+LMG2L["ImageLabel_9"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+-- LMG2L["ImageLabel_9"]["ImageContent"] = ;
+LMG2L["ImageLabel_9"]["Image"] = [[rbxassetid://129081537080130]];
+LMG2L["ImageLabel_9"]["Size"] = UDim2.new(0, 20, 0, 20);
+LMG2L["ImageLabel_9"]["BackgroundTransparency"] = 1;
+LMG2L["ImageLabel_9"]["Position"] = UDim2.new(0, 6, 0, 2);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.CloseButton
+LMG2L["CloseButton_a"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["CloseButton_a"]["BorderSizePixel"] = 0;
+LMG2L["CloseButton_a"]["TextStrokeColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["CloseButton_a"]["TextSize"] = 11;
+LMG2L["CloseButton_a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["CloseButton_a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["CloseButton_a"]["BackgroundTransparency"] = 1;
+LMG2L["CloseButton_a"]["Size"] = UDim2.new(0, 24, 0, 24);
+LMG2L["CloseButton_a"]["Text"] = [[🫪]];
+LMG2L["CloseButton_a"]["Name"] = [[CloseButton]];
+LMG2L["CloseButton_a"]["Position"] = UDim2.new(0, 234, 0, 0);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.GetAssetId
+LMG2L["GetAssetId_b"] = Instance.new("TextBox", LMG2L["Panel_2"]);
+LMG2L["GetAssetId_b"]["Name"] = [[GetAssetId]];
+LMG2L["GetAssetId_b"]["BorderSizePixel"] = 2;
+LMG2L["GetAssetId_b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["GetAssetId_b"]["BackgroundColor3"] = Color3.fromRGB(36, 36, 36);
+LMG2L["GetAssetId_b"]["Size"] = UDim2.new(0, 260, 0, 30);
+LMG2L["GetAssetId_b"]["Position"] = UDim2.new(0, 0, 0, 26);
+LMG2L["GetAssetId_b"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["GetAssetId_b"]["Text"] = [[Masukan ID Asset ..]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.GetAssetId.GetButton
+LMG2L["GetButton_c"] = Instance.new("TextButton", LMG2L["GetAssetId_b"]);
+LMG2L["GetButton_c"]["BorderSizePixel"] = 0;
+LMG2L["GetButton_c"]["TextSize"] = 6;
+LMG2L["GetButton_c"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["GetButton_c"]["BackgroundColor3"] = Color3.fromRGB(29, 171, 223);
+LMG2L["GetButton_c"]["Size"] = UDim2.new(0, 36, 0, 20);
+LMG2L["GetButton_c"]["Text"] = [[GET]];
+LMG2L["GetButton_c"]["Name"] = [[GetButton]];
+LMG2L["GetButton_c"]["Position"] = UDim2.new(0, 219, 0, 5);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame
+LMG2L["ScrollingFrame_d"] = Instance.new("ScrollingFrame", LMG2L["Panel_2"]);
+LMG2L["ScrollingFrame_d"]["BorderSizePixel"] = 2;
+LMG2L["ScrollingFrame_d"]["CanvasSize"] = UDim2.new(0, 0, 1, 0);
+LMG2L["ScrollingFrame_d"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["ScrollingFrame_d"]["Size"] = UDim2.new(0, 260, 0, 218);
+LMG2L["ScrollingFrame_d"]["ScrollBarImageColor3"] = Color3.fromRGB(81, 210, 255);
+LMG2L["ScrollingFrame_d"]["Position"] = UDim2.new(0, 0, 0, 80);
+LMG2L["ScrollingFrame_d"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["ScrollingFrame_d"]["ScrollBarThickness"] = 1;
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame.UIListLayout
+LMG2L["UIListLayout_e"] = Instance.new("UIListLayout", LMG2L["ScrollingFrame_d"]);
+LMG2L["UIListLayout_e"]["Padding"] = UDim.new(0, 3);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame.Frame
+LMG2L["Frame_f"] = Instance.new("Frame", LMG2L["ScrollingFrame_d"]);
+LMG2L["Frame_f"]["BorderSizePixel"] = 0;
+LMG2L["Frame_f"]["BackgroundColor3"] = Color3.fromRGB(36, 36, 36);
+LMG2L["Frame_f"]["Size"] = UDim2.new(0, 256, 0, 66);
+LMG2L["Frame_f"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame.Frame.SalinButton
+LMG2L["SalinButton_10"] = Instance.new("TextButton", LMG2L["Frame_f"]);
+LMG2L["SalinButton_10"]["BorderSizePixel"] = 0;
+LMG2L["SalinButton_10"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["SalinButton_10"]["BackgroundColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["SalinButton_10"]["Size"] = UDim2.new(0, 62, 0, 20);
+LMG2L["SalinButton_10"]["Text"] = [[Salin]];
+LMG2L["SalinButton_10"]["Name"] = [[SalinButton]];
+LMG2L["SalinButton_10"]["Position"] = UDim2.new(0, 190, 0, 18);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame.Frame.InsertButton
+LMG2L["InsertButton_11"] = Instance.new("TextButton", LMG2L["Frame_f"]);
+LMG2L["InsertButton_11"]["BorderSizePixel"] = 0;
+LMG2L["InsertButton_11"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["InsertButton_11"]["BackgroundColor3"] = Color3.fromRGB(29, 171, 223);
+LMG2L["InsertButton_11"]["Size"] = UDim2.new(0, 62, 0, 20);
+LMG2L["InsertButton_11"]["Text"] = [[Insert]];
+LMG2L["InsertButton_11"]["Name"] = [[InsertButton]];
+LMG2L["InsertButton_11"]["Position"] = UDim2.new(0, 190, 0, 42);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame.Frame.ImageAsset
+LMG2L["ImageAsset_12"] = Instance.new("ImageLabel", LMG2L["Frame_f"]);
+LMG2L["ImageAsset_12"]["BorderSizePixel"] = 0;
+LMG2L["ImageAsset_12"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["ImageAsset_12"]["Size"] = UDim2.new(0, 58, 0, 58);
+LMG2L["ImageAsset_12"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["ImageAsset_12"]["Name"] = [[ImageAsset]];
+LMG2L["ImageAsset_12"]["Position"] = UDim2.new(0, 4, 0, 4);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame.Frame.IdAsset
+LMG2L["IdAsset_13"] = Instance.new("TextLabel", LMG2L["Frame_f"]);
+LMG2L["IdAsset_13"]["BorderSizePixel"] = 0;
+LMG2L["IdAsset_13"]["TextSize"] = 7;
+LMG2L["IdAsset_13"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["IdAsset_13"]["TextYAlignment"] = Enum.TextYAlignment.Bottom;
+LMG2L["IdAsset_13"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["IdAsset_13"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["IdAsset_13"]["BackgroundTransparency"] = 1;
+LMG2L["IdAsset_13"]["Size"] = UDim2.new(0, 114, 0, 14);
+LMG2L["IdAsset_13"]["Text"] = [[ID :]];
+LMG2L["IdAsset_13"]["Name"] = [[IdAsset]];
+LMG2L["IdAsset_13"]["Position"] = UDim2.new(0, 68, 0, 46);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame.Frame.ByPemilikAsset
+LMG2L["ByPemilikAsset_14"] = Instance.new("TextLabel", LMG2L["Frame_f"]);
+LMG2L["ByPemilikAsset_14"]["BorderSizePixel"] = 0;
+LMG2L["ByPemilikAsset_14"]["TextSize"] = 6;
+LMG2L["ByPemilikAsset_14"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["ByPemilikAsset_14"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["ByPemilikAsset_14"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["ByPemilikAsset_14"]["BackgroundTransparency"] = 1;
+LMG2L["ByPemilikAsset_14"]["Size"] = UDim2.new(0, 132, 0, 12);
+LMG2L["ByPemilikAsset_14"]["Text"] = [[By]];
+LMG2L["ByPemilikAsset_14"]["Name"] = [[ByPemilikAsset]];
+LMG2L["ByPemilikAsset_14"]["Position"] = UDim2.new(0, 68, 0, 36);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame.Frame.NameAsset
+LMG2L["NameAsset_15"] = Instance.new("TextLabel", LMG2L["Frame_f"]);
+LMG2L["NameAsset_15"]["BorderSizePixel"] = 0;
+LMG2L["NameAsset_15"]["TextSize"] = 10;
+LMG2L["NameAsset_15"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["NameAsset_15"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+LMG2L["NameAsset_15"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["NameAsset_15"]["FontFace"] = Font.new([[rbxasset://fonts/families/Arial.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+LMG2L["NameAsset_15"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["NameAsset_15"]["BackgroundTransparency"] = 1;
+LMG2L["NameAsset_15"]["Size"] = UDim2.new(0, 118, 0, 30);
+LMG2L["NameAsset_15"]["Text"] = [[name asset]];
+LMG2L["NameAsset_15"]["Name"] = [[NameAsset]];
+LMG2L["NameAsset_15"]["Position"] = UDim2.new(0, 68, 0, 6);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.MainPanel
+LMG2L["MainPanel_16"] = Instance.new("LocalScript", LMG2L["ScreenGui_1"]);
+LMG2L["MainPanel_16"]["Name"] = [[MainPanel]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.PanahButton
+LMG2L["PanahButton_17"] = Instance.new("TextButton", LMG2L["ScreenGui_1"]);
+LMG2L["PanahButton_17"]["TextSize"] = 12;
+LMG2L["PanahButton_17"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["PanahButton_17"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["PanahButton_17"]["BackgroundTransparency"] = 0.3;
+LMG2L["PanahButton_17"]["Size"] = UDim2.new(0, 20, 0, 52);
+LMG2L["PanahButton_17"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["PanahButton_17"]["Text"] = [[<]];
+LMG2L["PanahButton_17"]["Name"] = [[PanahButton]];
+LMG2L["PanahButton_17"]["Position"] = UDim2.new(0, 270, 0, 152);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.MainPanel
+local function C_16()
+	local script = LMG2L["MainPanel_16"];
+	--// LOCAL SCRIPT	
+	--// MainPanel	
+	
+	task.spawn(function()	
+	
+		--====================================================	
+		-- SERVICES	
+		--====================================================	
+	
+		local TweenService = game:GetService("TweenService")	
+	
+		--====================================================	
+		-- GUI	
+		--====================================================	
+	
+		local Gui = script.Parent	
+	
+		local MainPanel = Gui:WaitForChild("Panel")	
+		local PanelMenu = MainPanel:WaitForChild("PanelMenu")	
+		local CloseButton = MainPanel:WaitForChild("CloseButton")	
+	
+		--// PANAH SEKARANG DI SCREENGUI	
+		local PanahButton = Gui:WaitForChild("PanahButton")	
+	
+		--====================================================	
+		-- TWEEN	
+		--====================================================	
+	
+		local OpenTween = TweenInfo.new(	
+			0.35,	
+			Enum.EasingStyle.Quart,	
+			Enum.EasingDirection.Out	
+		)	
+	
+		local CloseTween = TweenInfo.new(	
+			0.3,	
+			Enum.EasingStyle.Quart,	
+			Enum.EasingDirection.In	
+		)	
+	
+		--====================================================	
+		-- POSITION	
+		--====================================================	
+	
+		--// PANEL	
+		local PANEL_OPEN = UDim2.new(0, 5, 0, 20)	
+		local PANEL_HIDE = UDim2.new(0, -270, 0, 20)	
+	
+		--// MENU	
+		local MENU_OPEN = UDim2.new(0, 264, 0, 28)	
+		local MENU_HIDE = UDim2.new(0, -40, 0, 28)	
+	
+		--// PANAH BUTTON	
+		--// POSISI NORMAL	
+		local ARROW_OPEN = UDim2.new(0, 269, 0, 20)	
+	
+		--// SAAT PANEL DISEMBUNYIKAN	
+		--// PANAH TETAP DI LUAR	
+		local ARROW_HIDE = UDim2.new(0, 0, 0, 50)	
+	
+		--====================================================	
+		-- STATE	
+		--====================================================	
+	
+		local Hidden = false	
+		local Busy = false	
+	
+		--====================================================	
+		-- TOGGLE PANEL	
+		--====================================================	
+	
+		local function TogglePanel()	
+	
+			if Busy then	
+				return	
+			end	
+	
+			Busy = true	
+	
+			if not Hidden then	
+	
+				--================================================	
+				-- HIDE PANEL	
+				--================================================	
+	
+				Hidden = true	
+				PanahButton.Text = ">"	
+	
+				--// PANEL KE KIRI	
+				TweenService:Create(	
+					MainPanel,	
+					OpenTween,	
+					{	
+						Position = PANEL_HIDE	
+					}	
+				):Play()	
+	
+				--// MENU IKUT KE KIRI	
+				TweenService:Create(	
+					PanelMenu,	
+					OpenTween,	
+					{	
+						Position = MENU_HIDE	
+					}	
+				):Play()	
+	
+				--// PANAH TETAP DI LUAR	
+				TweenService:Create(	
+					PanahButton,	
+					OpenTween,	
+					{	
+						Position = ARROW_HIDE	
+					}	
+				):Play()	
+	
+			else	
+	
+				--================================================	
+				-- SHOW PANEL	
+				--================================================	
+	
+				Hidden = false	
+				PanahButton.Text = "<"	
+	
+				--// PANEL BALIK	
+				TweenService:Create(	
+					MainPanel,	
+					OpenTween,	
+					{	
+						Position = PANEL_OPEN	
+					}	
+				):Play()	
+	
+				--// MENU BALIK	
+				TweenService:Create(	
+					PanelMenu,	
+					OpenTween,	
+					{	
+						Position = MENU_OPEN	
+					}	
+				):Play()	
+	
+				--// PANAH IKUT KE KANAN	
+				TweenService:Create(	
+					PanahButton,	
+					OpenTween,	
+					{	
+						Position = ARROW_OPEN	
+					}	
+				):Play()	
+	
+			end	
+	
+			task.wait(0.35)	
+			Busy = false	
+	
+		end	
+	
+		--====================================================	
+		-- CLOSE GUI	
+		--====================================================	
+	
+		local function CloseGui()	
+	
+			if Busy then	
+				return	
+			end	
+	
+			Busy = true	
+	
+			--// PANEL SHRINK	
+			TweenService:Create(	
+				MainPanel,	
+				CloseTween,	
+				{	
+					Size = UDim2.new(0, 0, 0, 0),	
+					BackgroundTransparency = 1	
+				}	
+			):Play()	
+	
+			--// PANAH FADE	
+			TweenService:Create(	
+				PanahButton,	
+				CloseTween,	
+				{	
+					TextTransparency = 1,	
+					BackgroundTransparency = 1	
+				}	
+			):Play()	
+	
+			--// FADE SEMUA OBJECT PANEL	
+			for _, v in ipairs(MainPanel:GetDescendants()) do	
+	
+				if v:IsA("TextLabel")	
+					or v:IsA("TextButton")	
+					or v:IsA("TextBox") then	
+	
+					TweenService:Create(	
+						v,	
+						CloseTween,	
+						{	
+							TextTransparency = 1,	
+							BackgroundTransparency = 1	
+						}	
+					):Play()	
+	
+				elseif v:IsA("ImageLabel")	
+					or v:IsA("ImageButton") then	
+	
+					TweenService:Create(	
+						v,	
+						CloseTween,	
+						{	
+							ImageTransparency = 1,	
+							BackgroundTransparency = 1	
+						}	
+					):Play()	
+	
+				elseif v:IsA("Frame")	
+					or v:IsA("ScrollingFrame") then	
+	
+					TweenService:Create(	
+						v,	
+						CloseTween,	
+						{	
+							BackgroundTransparency = 1	
+						}	
+					):Play()	
+	
+				end	
+			end	
+	
+			task.wait(0.35)	
+	
+			if Gui then	
+				Gui:Destroy()	
+			end	
+	
+		end	
+	
+		--====================================================	
+		-- CONNECTION	
+		--====================================================	
+	
+		PanahButton.MouseButton1Click:Connect(TogglePanel)	
+		CloseButton.MouseButton1Click:Connect(CloseGui)	
+	
+	end)	
+end;
+task.spawn(C_16);
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.MainPanel
+local function C_16()
+	local script = LMG2L["MainPanel_16"];
+	
+	task.spawn(function()	
+	
+		--====================================================	
+		-- SERVICES	
+		--====================================================	
+		local TweenService = game:GetService("TweenService")	
+	
+		--====================================================	
+		-- GUI CORRECTION (SESUAI STRUKTUR BARU)	
+		--====================================================	
+		local Gui = script.Parent	
+	
+		local MainPanel = Gui:WaitForChild("Panel")	
+		local CloseButton = MainPanel:WaitForChild("CloseButton")	
+	
+		-- PANAH DI SCREENGUI
+		local PanahButton = Gui:WaitForChild("PanahButton")	
+	
+		--====================================================	
+		-- TWEEN INFO	
+		--====================================================	
+		local OpenTween = TweenInfo.new(	
+			0.35,	
+			Enum.EasingStyle.Quart,	
+			Enum.EasingDirection.Out	
+		)	
+	
+		local CloseTween = TweenInfo.new(	
+			0.3,	
+			Enum.EasingStyle.Quart,	
+			Enum.EasingDirection.In	
+		)	
+	
+		--====================================================	
+		-- KALIBRASI POSISI TWEEN (AKURAT DENGAN STRUKTUR BARU)	
+		--====================================================	
+		-- PANEL POSITION
+		local PANEL_OPEN = UDim2.new(0, 5, 0, 20)	
+		local PANEL_HIDE = UDim2.new(0, -270, 0, 20) -- Geser penuh ke kiri luar layar	
+	
+		-- PANAH BUTTON POSITION (Disesuaikan dari Y: 152 asli struktur baru Anda)
+		local ARROW_OPEN = UDim2.new(0, 270, 0, 152) -- Posisi default nempel di kanan panel	
+		local ARROW_HIDE = UDim2.new(0, 5, 0, 152)   -- Tetap di luar (sisi kiri layar) saat panel sembunyi	
+	
+		--====================================================	
+		-- STATE	
+		--====================================================	
+		local Hidden = false	
+		local Busy = false	
+	
+		--====================================================	
+		-- TOGGLE PANEL HANDLER	
+		--====================================================	
+		local function TogglePanel()	
+			if Busy then return end	
+			Busy = true	
+	
+			if not Hidden then	
+				-------------------------------------------------	
+				-- HIDE PANEL	
+				-------------------------------------------------	
+				Hidden = true	
+				PanahButton.Text = ">"	
+	
+				-- PANEL SEMBUNYI KE KIRI	
+				TweenService:Create(MainPanel, OpenTween, {Position = PANEL_HIDE}):Play()	
+	
+				-- PANAH BERGESER KE POJOK KIRI LAYAR (TETAP TERLIHAT)	
+				TweenService:Create(PanahButton, OpenTween, {Position = ARROW_HIDE}):Play()	
+			else	
+				-------------------------------------------------	
+				-- SHOW PANEL	
+				-------------------------------------------------	
+				Hidden = false	
+				PanahButton.Text = "<"	
+	
+				-- PANEL KEMBALI MUNCUL	
+				TweenService:Create(MainPanel, OpenTween, {Position = PANEL_OPEN}):Play()	
+	
+				-- PANAH KEMBALI KE POSISI ASLI	
+				TweenService:Create(PanahButton, OpenTween, {Position = ARROW_OPEN}):Play()	
+			end	
+	
+			task.wait(0.35)	
+			Busy = false	
+		end	
+	
+		--====================================================	
+		-- CLOSE GUI HANDLER (FADE OUT EFFECT)	
+		--====================================================	
+		local function CloseGui()	
+			if Busy then return end	
+			Busy = true	
+	
+			-- ANIMASI PANEL MENGECIL & TRANSPARAN	
+			TweenService:Create(MainPanel, CloseTween, {
+				Size = UDim2.new(0, 0, 0, 0),	
+				BackgroundTransparency = 1	
+			}):Play()	
+	
+			-- ANIMASI PANAH MENGHILANG	
+			TweenService:Create(PanahButton, CloseTween, {	
+				TextTransparency = 1,	
+				BackgroundTransparency = 1	
+			}):Play()	
+	
+			-- FADE OUT ELEMEN ANAK DI DALAM PANEL	
+			for _, v in ipairs(MainPanel:GetDescendants()) do	
+				if v:IsA("TextLabel") or v:IsA("TextButton") or v:IsA("TextBox") then	
+					TweenService:Create(v, CloseTween, {	
+						TextTransparency = 1,	
+						BackgroundTransparency = 1	
+					}):Play()	
+				elseif v:IsA("ImageLabel") or v:IsA("ImageButton") then	
+					TweenService:Create(v, CloseTween, {	
+						ImageTransparency = 1,	
+						BackgroundTransparency = 1	
+					}):Play()	
+				elseif v:IsA("Frame") or v:IsA("ScrollingFrame") then	
+					TweenService:Create(v, CloseTween, {	
+						BackgroundTransparency = 1	
+					}):Play()	
+				end	
+			end	
+	
+			task.wait(0.35)	
+	
+			if Gui then	
+				Gui:Destroy()	
+			end	
+		end	
+	
+		--====================================================	
+		-- CONNECTIONS	
+		--====================================================	
+		PanahButton.MouseButton1Click:Connect(TogglePanel)	
+		CloseButton.MouseButton1Click:Connect(CloseGui)	
+	
+	end)	
+end;
+task.spawn(C_16);
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.MainPanel
+local function C_1e()
+	local script = LMG2L["MainPanel_16"] or LMG2L["MainPanel_1e"]; -- Menyesuaikan index instance baru Anda
+	
+	task.spawn(function()	
+		-------------------------------------------------------------------------
+		-- SERVICES & STUDIO LITE BINDINGS
+		-------------------------------------------------------------------------
+		local TweenService = game:GetService("TweenService")	
+		local MarketplaceService = game:GetService("MarketplaceService")
+		local HttpService = game:GetService("HttpService")
+		local Players = game:GetService("Players")
+		local LocalPlayer = Players.LocalPlayer
+		local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+		
+		local StudioLiteFolder = game:GetService("ReplicatedStorage"):WaitForChild("StudioLiteFolder", 5)
+		local LoadAssetRemote = StudioLiteFolder and StudioLiteFolder:WaitForChild("LoadAssetModelToPlayerGuiServerFunction", 5)
+		local ClearAssetRemote = StudioLiteFolder and StudioLiteFolder:WaitForChild("ClearAssetModelToPlayerGuiServerFunction", 5)
+		
+		local writefile = writefile or io.writefile
+		local readfile = readfile or io.readfile
+		local isfile = isfile or io.isfile
+		local makefolder = makefolder or io.makefolder
+		local setclipboard = setclipboard or toclipboard or print
+
+		-------------------------------------------------------------------------
+		-- PEMANGGILAN OBJEK UI (100% SINKRON DENGAN STRUKTUR BARU)
+		-------------------------------------------------------------------------
+		local Gui = script.Parent	
+		local MainPanel = Gui:WaitForChild("Panel")	
+		local CloseButton = MainPanel:WaitForChild("CloseButton")	
+		local PanahButton = Gui:WaitForChild("PanahButton")	
+		
+		local ModelButton = MainPanel:WaitForChild("ModelButton")
+		local DecalButton = MainPanel:WaitForChild("DecalButton")
+		local AudioButton = MainPanel:WaitForChild("AudioButton")
+		
+		-- Penyesuaian Baru: Menggunakan GetAssetId & GetButton (Bagian Atas Panel)
+		local GetAssetIdBox = MainPanel:WaitForChild("GetAssetId")
+		local GetButton = GetAssetIdBox:WaitForChild("GetButton")
+		
+		-- Penyesuaian Baru: Menggunakan AssetId & SaveButton (Bagian Bawah Panel)
+		local AssetIdBox = MainPanel:WaitForChild("AssetId")
+		local SaveButton = AssetIdBox:WaitForChild("SaveButton")
+		
+		local ScrollingFrame = MainPanel:WaitForChild("ScrollingFrame")
+		local TemplateFrame = ScrollingFrame:WaitForChild("Frame")
+		
+		-- Memutus Template Master dari susunan UIListLayout agar list rapi
+		TemplateFrame.Visible = false 
+		TemplateFrame.Parent = nil
+
+		-------------------------------------------------------------------------
+		-- DATA SAVED STATE CONFIGURATION
+		-------------------------------------------------------------------------
+		local CurrentCategory = "Model" 
+		local SavedAssets = {
+			Model = {89464989224212, 16063473188},
+			Decal = {4846381420},
+			Audio = {118149279616179, 124112959171614}
+		}
+
+		local COLOR_ACTIVE = Color3.fromRGB(29, 171, 223)   
+		local COLOR_INACTIVE = Color3.fromRGB(36, 36, 36) 
+
+		if makefolder and isfile and readfile then
+			pcall(function()
+				makefolder("delta")
+				if isfile("delta/toolbox_assets.json") then
+					local decoded = HttpService:JSONDecode(readfile("delta/toolbox_assets.json"))
+					if decoded then SavedAssets = decoded end
+				end
+			end)
+		end
+
+		local function SaveData()
+			if writefile then
+				pcall(function()
+					writefile("delta/toolbox_assets.json", HttpService:JSONEncode(SavedAssets))
+				end)
+			end
+		end
+
+		local function ClearList()
+			for _, item in ipairs(ScrollingFrame:GetChildren()) do
+				if item:IsA("Frame") then
+					item:Destroy()
+				end
+			end
+		end
+
+		-------------------------------------------------------------------------
+		-- FUNGSI INSERT UTAMA (DIGUNAKAN OLEH INSERT CARD & GET BUTTON)
+		-------------------------------------------------------------------------
+		local function InsertAsset(assetId, category, statusTarget)
+			statusTarget.Text = "Working"
+			local stringId = tostring(assetId)
+
+			-- Ambil info tipe aset jika kategori tidak ditentukan langsung
+			if not category then
+				local success, info = pcall(function() return MarketplaceService:GetProductInfo(assetId) end)
+				if success and info then
+					if info.AssetTypeId == 13 or info.AssetTypeId == 3 or info.AssetTypeId == 14 then category = "Decal"
+					elseif info.AssetTypeId == 34 then category = "Audio"
+					else category = "Model" end
+				else
+					category = "Model" -- Fallback default
+				end
+			end
+
+			-- Logika Spasial Khusus Audio (Langsung ke Workspace)
+			if category == "Audio" then
+				local success, info = pcall(function() return MarketplaceService:GetProductInfo(assetId) end)
+				local sound = Instance.new("Sound")
+				sound.Name = (success and info and info.Name) or "SoundAsset_" .. stringId
+				sound.SoundId = "rbxassetid://" .. stringId
+				sound.Volume = 0.5
+				sound.Parent = workspace
+				
+				statusTarget.Text = "Berhasil!"
+				return
+			end
+
+			-- Logika Studio Lite Bindings (Model / Decal)
+			if LoadAssetRemote and LoadAssetRemote:IsA("RemoteFunction") then
+				local loadSuccess = false
+				pcall(function()
+					loadSuccess = LoadAssetRemote:InvokeServer(stringId)
+				end)
+
+				if loadSuccess then
+					local serverFolder = PlayerGui:WaitForChild(stringId, 5)
+					if serverFolder then
+						local assetClone = serverFolder:Clone()
+						
+						local workspaceFolder = assetClone:FindFirstChild("Workspace")
+						if workspaceFolder and workspaceFolder.ClassName == "Folder" then
+							if workspace:FindFirstChild("SpawnLocation") then workspace.SpawnLocation:Destroy() end
+							if workspace:FindFirstChild("Baseplate") then workspace.Baseplate:Destroy() end
+						end
+
+						for _, obj in pairs(assetClone:GetChildren()) do
+							if obj.ClassName == "Folder" and ("Workspace Lighting MaterialService ReplicatedStorage ServerStorage ServerScriptService StarterGui StarterPack Teams SoundService StarterPlayer InsertService TextChatService"):find(obj.Name, 1, true) then
+								if obj.Name == "ServerStorage" then
+									for _, item in pairs(obj:GetChildren()) do item.Parent = _G.ss or game:GetService("ServerStorage") end
+								elseif obj.Name == "ServerScriptService" then
+									for _, item in pairs(obj:GetChildren()) do item.Parent = _G.sss or game:GetService("ServerScriptService") end
+								elseif obj.Name == "StarterPlayer" then
+									for _, inner in pairs(obj:GetChildren()) do
+										if inner.Name == "StarterPlayerScripts" or inner.Name == "StarterCharacterScripts" then
+											for _, scr in pairs(inner:GetChildren()) do
+												if not game.StarterPlayer[inner.Name]:FindFirstChild(scr.Name) then
+													scr.Parent = game.StarterPlayer[inner.Name]
+												end
+											end
+										else
+											inner.Parent = game.StarterPlayer
+										end
+									end
+								elseif obj.Name ~= "InsertService" and obj.Name ~= "TextChatService" then
+									for _, item in pairs(obj:GetChildren()) do item.Parent = game[obj.Name] end
+								end
+							elseif obj:IsA("PostEffect") or obj.ClassName == "Sky" then
+								obj.Parent = game.Lighting
+							else
+								local targetModel, isTemporary, tempContainer
+								if obj.ClassName == "Model" then
+									targetModel = obj
+									isTemporary = false
+								else
+									targetModel = Instance.new("Model")
+									obj.Parent = targetModel
+									tempContainer = targetModel
+									isTemporary = true
+								end
+
+								local currentCFrame, boundingSize = targetModel:GetBoundingBox()
+								local lowestYOffset = not targetModel.PrimaryPart and 0 or targetModel.PrimaryPart.Position.Y - boundingSize.Y / 2
+								
+								local camCFrame = workspace.Camera.CFrame
+								local posX = math.floor((camCFrame.X + camCFrame.LookVector.X * 30) * 2) / 2
+								local posY = boundingSize.Y / 2 + lowestYOffset
+								local posZ = math.floor((camCFrame.Z + camCFrame.LookVector.Z * 30) * 2) / 2
+								
+								local calculatedPos = Vector3.new(posX, posY, posZ)
+								local raycastOrigin = Vector3.new(calculatedPos.X, camCFrame.Y, calculatedPos.Z)
+								local raycastResult = workspace:Raycast(raycastOrigin, Vector3.new(0, -camCFrame.Y, 0))
+								
+								if raycastResult then
+									local newY = raycastResult.Instance.Position.Y + raycastResult.Instance.Size.Y / 2 + boundingSize.Y / 2 + lowestYOffset
+									calculatedPos = Vector3.new(calculatedPos.X, newY, calculatedPos.Z)
+								end
+
+								targetModel:PivotTo(CFrame.new(calculatedPos) * currentCFrame.Rotation)
+
+								if isTemporary then
+									local finalObj = targetModel:GetChildren()[1]:Clone()
+									finalObj.Parent = workspace
+									if tempContainer then tempContainer:Destroy() end
+								else
+									targetModel.Parent = workspace
+								end
+							end
+						end
+
+						assetClone:Destroy()
+						if ClearAssetRemote then ClearAssetRemote:InvokeServer(stringId) end
+						statusTarget.Text = "Berhasil!"
+					else
+						statusTarget.Text = "No Folder"
+					end
+				else
+					statusTarget.Text = "Gagal"
+				end
+			else
+				-- Executor Client Fallback
+				local clientSuccess, clientObj = pcall(function()
+					return game:GetObjects("rbxassetid://" .. assetId)[1]
+				end)
+
+				if clientSuccess and clientObj then
+					local clone = clientObj:Clone()
+					clone.Parent = workspace
+					if clone:IsA("Model") then
+						clone:MakeJoints()
+						if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+							clone:MoveTo(LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0, 5, 0))
+						end
+					end
+					statusTarget.Text = "Berhasil!"
+				else
+					statusTarget.Text = "No Remote"
+				end
+			end
+		end
+
+		-------------------------------------------------------------------------
+		-- RENDER LIST ASSET & FIX SCROLL BAR
+		-------------------------------------------------------------------------
+		local function RenderAssets()
+			ClearList()
+			local targetList = SavedAssets[CurrentCategory] or {}
+
+			local function UpdateCanvas()
+				local layout = ScrollingFrame:FindFirstChild("UIListLayout")
+				if layout then
+					ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y + 25)
+				end
+			end
+
+			for _, assetId in ipairs(targetList) do
+				task.spawn(function()
+					local success, info = pcall(function()
+						return MarketplaceService:GetProductInfo(assetId)
+					end)
+
+					if success and info then
+						local card = TemplateFrame:Clone()
+						card.Visible = true
+						card.Parent = ScrollingFrame
+						card.Name = "Asset_" .. assetId
+
+						local SalinButton = card:WaitForChild("SalinButton")
+						local InsertButton = card:WaitForChild("InsertButton")
+						local ImageAsset = card:WaitForChild("ImageAsset")
+						local IdAsset = card:WaitForChild("IdAsset")
+						local ByPemilikAsset = card:WaitForChild("ByPemilikAsset")
+						local NameAsset = card:WaitForChild("NameAsset")
+
+						-- FIX TEKS MULTILINE
+						NameAsset.TextWrapped = true
+						NameAsset.TextYAlignment = Enum.TextYAlignment.Top
+						NameAsset.Text = info.Name
+						
+						ByPemilikAsset.Text = "By: " .. (info.Creator and info.Creator.Name or "Unknown")
+						IdAsset.Text = "ID: " .. tostring(assetId)
+
+						if CurrentCategory == "Decal" then
+							ImageAsset.Image = "rbxthumb://type=Asset&id=" .. assetId .. "&w=150&h=150"
+						elseif CurrentCategory == "Audio" then
+							ImageAsset.Image = "rbxassetid://16327318049" 
+						else
+							ImageAsset.Image = "rbxthumb://type=Asset&id=" .. assetId .. "&w=150&h=150"
+						end
+
+						SalinButton.MouseButton1Click:Connect(function()
+							setclipboard(tostring(assetId))
+							SalinButton.Text = "Tersalin!"
+							task.wait(1)
+							SalinButton.Text = "Salin"
+						end)
+
+						InsertButton.MouseButton1Click:Connect(function()
+							InsertAsset(assetId, CurrentCategory, InsertButton)
+							task.wait(1.5)
+							InsertButton.Text = "Insert"
+						end)
+
+						UpdateCanvas()
+					end
+				end)
+			end
+			
+			task.defer(function()
+				for i = 1, 5 do
+					UpdateCanvas()
+					task.wait(0.05)
+				end
+			end)
+		end
+
+		local function SwitchTab(tabName)
+			CurrentCategory = tabName
+			ModelButton.BackgroundColor3 = COLOR_INACTIVE
+			DecalButton.BackgroundColor3 = COLOR_INACTIVE
+			AudioButton.BackgroundColor3 = COLOR_INACTIVE
+
+			if tabName == "Model" then ModelButton.BackgroundColor3 = COLOR_ACTIVE
+			elseif tabName == "Decal" then DecalButton.BackgroundColor3 = COLOR_ACTIVE
+			elseif tabName == "Audio" then AudioButton.BackgroundColor3 = COLOR_ACTIVE end
+			RenderAssets()
+		end
+
+		-------------------------------------------------------------------------
+		-- ACTION LISTENERS & EVENT HANDLERS
+		-------------------------------------------------------------------------
+		ModelButton.MouseButton1Click:Connect(function() SwitchTab("Model") end)
+		DecalButton.MouseButton1Click:Connect(function() SwitchTab("Decal") end)
+		AudioButton.MouseButton1Click:Connect(function() SwitchTab("Audio") end)
+
+		-- Logika GetButton Untuk Memasukkan ID Langsung ke Workspace
+		GetButton.MouseButton1Click:Connect(function()
+			local cleanId = tonumber(GetAssetIdBox.Text:match("%d+"))
+			if not cleanId then
+				GetAssetIdBox.Text = "Harus ID Angka!"
+				task.wait(1.5)
+				GetAssetIdBox.Text = "Masukan ID Asset .."
+				return
+			end
+
+			GetButton.Text = "LOAD"
+			InsertAsset(cleanId, nil, GetButton)
+			task.wait(1.5)
+			GetButton.Text = "GET"
+			GetAssetIdBox.Text = "Masukan ID Asset .."
+		end)
+
+		SaveButton.MouseButton1Click:Connect(function()
+			local cleanId = tonumber(AssetIdBox.Text:match("%d+"))
+			if not cleanId then
+				AssetIdBox.Text = "Harus ID Angka!"
+				task.wait(1.5)
+				AssetIdBox.Text = "Masukan ID Asset.."
+				return
+			end
+
+			SaveButton.Text = "CHECKING"
+			local success, info = pcall(function() return MarketplaceService:GetProductInfo(cleanId) end)
+
+			if success and info then
+				local cat = "Model"
+				if info.AssetTypeId == 13 or info.AssetTypeId == 3 or info.AssetTypeId == 14 then cat = "Decal"
+				elseif info.AssetTypeId == 34 then cat = "Audio" end
+
+				local isDup = false
+				for _, id in ipairs(SavedAssets[cat]) do if id == cleanId then isDup = true break end end
+
+				if not isDup then
+					table.insert(SavedAssets[cat], cleanId)
+					SaveData()
+					SwitchTab(cat)
+					AssetIdBox.Text = "Tersimpan!"
+				else
+					AssetIdBox.Text = "Sudah Ada!"
+				end
+			else
+				AssetIdBox.Text = "ID Gagal Validasi!"
+			end
+			task.wait(2)
+			SaveButton.Text = "SAVE"
+			AssetIdBox.Text = "Masukan ID Asset.."
+		end)
+
+		-------------------------------------------------------------------------
+		-- PANEL TWEEN ANIMATION (AKURAT DENGAN STRUKTUR BARU)
+		-------------------------------------------------------------------------
+		local OpenTween = TweenInfo.new(0.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)	
+		local CloseTween = TweenInfo.new(0.3, Enum.EasingStyle.Quart, Enum.EasingDirection.In)	
+	
+		local PANEL_OPEN = UDim2.new(0, 5, 0, 20)	
+		local PANEL_HIDE = UDim2.new(0, -270, 0, 20)	
+		
+		-- Kalibrasi Koordinat Tombol Panah Vertikal Y: 152 asli struktur baru Anda
+		local ARROW_OPEN = UDim2.new(0, 270, 0, 152)	
+		local ARROW_HIDE = UDim2.new(0, 5, 0, 152)	
+	
+		local Hidden = false	
+		local Busy = false	
+	
+		local function TogglePanel()	
+			if Busy then return end	
+			Busy = true	
+	
+			if not Hidden then	
+				Hidden = true	
+				PanahButton.Text = ">"	
+				TweenService:Create(MainPanel, OpenTween, {Position = PANEL_HIDE}):Play()	
+				TweenService:Create(PanahButton, OpenTween, {Position = ARROW_HIDE}):Play()	
+			else	
+				Hidden = false	
+				PanahButton.Text = "<"	
+				TweenService:Create(MainPanel, OpenTween, {Position = PANEL_OPEN}):Play()	
+				TweenService:Create(PanahButton, OpenTween, {Position = ARROW_OPEN}):Play()	
+			end	
+			task.wait(0.35)	
+			Busy = false	
+		end	
+	
+		local function CloseGui()	
+			if Busy then return end	
+			Busy = true	
+			TweenService:Create(MainPanel, CloseTween, {Size = UDim2.new(0, 0, 0, 0), BackgroundTransparency = 1}):Play()	
+			TweenService:Create(PanahButton, CloseTween, {TextTransparency = 1, BackgroundTransparency = 1}):Play()	
+			for _, v in ipairs(MainPanel:GetDescendants()) do	
+				if v:IsA("TextLabel") or v:IsA("TextButton") or v:IsA("TextBox") then	
+					TweenService:Create(v, CloseTween, {TextTransparency = 1, BackgroundTransparency = 1}):Play()	
+				elseif v:IsA("ImageLabel") or v:IsA("ImageButton") then	
+					TweenService:Create(v, CloseTween, {ImageTransparency = 1, BackgroundTransparency = 1}):Play()	
+				elseif v:IsA("Frame") or v:IsA("ScrollingFrame") then	
+					TweenService:Create(v, CloseTween, {BackgroundTransparency = 1}):Play()	
+				end	
+			end	
+			task.wait(0.35)	
+			if Gui then Gui:Destroy() end	
+		end	
+	
+		PanahButton.MouseButton1Click:Connect(TogglePanel)	
+		CloseButton.MouseButton1Click:Connect(CloseGui)	
+
+		SwitchTab("Model")
+	end)	
+end;
+task.spawn(C_1e);
+
+return LMG2L["ScreenGui_1"], require;
