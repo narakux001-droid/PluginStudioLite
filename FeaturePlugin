@@ -370,7 +370,7 @@ LMG2L["UIGradient_22"] = Instance.new("UIGradient", LMG2L["UIStroke_21"]);
 LMG2L["UIGradient_22"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(0, 0, 0)),ColorSequenceKeypoint.new(0.922, Color3.fromRGB(226, 226, 226)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(226, 226, 226))};
 
 --[=[ 
- NARAKU BETA CONVERTER SYSTEM
+ NARAKU BETA CONVERTER SYSTEM - 100% STABLE
 ]=]
 
 local TweenService = game:GetService("TweenService")
@@ -390,7 +390,7 @@ end
 
 -- Data URL Terenkripsi
 local _0xFly = "104 116 116 112 115 58 47 47 112 97 115 116 101 102 121 46 97 112 112 47 111 102 85 71 55 74 115 118 47 114 97 119"
-local _0xTool = "104 116 116 112 115 58 47 47 114 97 119 46 103 105 116 104 117 98 117 115 101 114 99 111 110 116 101 110 116 46 99 111 109 47 110 97 114 97 107 117 120 48 48 49 45 100 114 111 105 100 47 80 108 117 103 105 110 83 116 117 100 105 111 76 105 116 101 47 114 101 102 115 47 104 101 97 100 115 47 109 97 105 110 47 84 111 111 108 98 111 120"
+local _0xTool = "104 116 116 112 115 58 47 47 114 97 119 46 103 105 116 104 117 98 117 115 101 114 99 111 110 116 101 110 116 46 99 111 109 47 110 97 114 97 107 117 120 48 48 49 45 100 114 111 105 100 47 80 108 117 103 105 110 83 116 117 100 105 111 76 105 116 101 47 114 101 102 115 47 104 101 97 100 115 47 109 97 105 110 47 84 111 111 108 98 111 120 46 108 117 97"
 local _0xArch = "104 116 116 112 115 58 47 47 114 97 119 46 103 105 116 104 117 98 117 115 101 114 99 111 110 116 101 110 116 46 99 111 109 47 110 97 114 97 107 117 120 48 48 49 45 100 114 111 105 100 47 80 108 117 103 105 110 83 116 117 100 105 111 76 105 116 101 47 114 101 102 115 47 104 101 97 100 115 47 109 97 105 110 47 65 114 99 104 105 109 101 100 101 115"
 local _0xTerr = "104 116 116 112 115 58 47 47 112 97 115 116 101 102 121 46 97 112 112 47 71 85 102 68 54 113 99 54 47 114 97 119"
 
@@ -416,14 +416,11 @@ LMG2L["CloseButton_17"].MouseButton1Click:Connect(function()
     LMG2L["ScreenGui_1"]:Destroy()
 end)
 
--- 2. SYSTEM ANTI AFK
+-- 2. SYSTEM ANTI AFK (Fixed)
 local AntiAfkEnabled = false
-local ToggleAntiAfk = LMG2L["TextAntiAfk_6"].ToggleFrame
-local BtnAntiAfk = ToggleAntiAfk.ToggleButton
-
-BtnAntiAfk.MouseButton1Click:Connect(function()
+LMG2L["TextAntiAfk_6"].ToggleFrame.ToggleButton.MouseButton1Click:Connect(function()
     AntiAfkEnabled = not AntiAfkEnabled
-    updateToggle(ToggleAntiAfk, BtnAntiAfk, AntiAfkEnabled)
+    updateToggle(LMG2L["TextAntiAfk_6"].ToggleFrame, LMG2L["TextAntiAfk_6"].ToggleFrame.ToggleButton, AntiAfkEnabled)
 end)
 
 RunService.Heartbeat:Connect(function()
@@ -433,32 +430,30 @@ RunService.Heartbeat:Connect(function()
     end
 end)
 
--- 3. SYSTEM SPEED
+-- 3. SYSTEM SPEED (Fixed & Improved)
 local SpeedEnabled = false
-local ToggleSpeed = LMG2L["TextSpeed_c"].ToggleFrame
-local BtnSpeed = ToggleSpeed.ToggleButton
-
-BtnSpeed.MouseButton1Click:Connect(function()
+LMG2L["TextSpeed_c"].ToggleFrame.ToggleButton.MouseButton1Click:Connect(function()
     SpeedEnabled = not SpeedEnabled
-    updateToggle(ToggleSpeed, BtnSpeed, SpeedEnabled)
+    updateToggle(LMG2L["TextSpeed_c"].ToggleFrame, LMG2L["TextSpeed_c"].ToggleFrame.ToggleButton, SpeedEnabled)
 end)
 
 RunService.RenderStepped:Connect(function()
     local char = LocalPlayer.Character
     if char and char:FindFirstChild("Humanoid") then
+        local targetSpeed = tonumber(LMG2L["SpeedBox_d"].Text) or 16
         if SpeedEnabled then
-            local val = tonumber(LMG2L["SpeedBox_d"].Text) or 16
-            if val >= 10 and val <= 100 then char.Humanoid.WalkSpeed = val end
-        elseif char.Humanoid.WalkSpeed ~= 16 and not SpeedEnabled then
-            char.Humanoid.WalkSpeed = 16
+            if char.Humanoid.WalkSpeed ~= targetSpeed then
+                char.Humanoid.WalkSpeed = targetSpeed
+            end
         end
     end
 end)
 
--- 4. FLY BUTTON
-LMG2L["FlyButton_4"].MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet(_0x1a(_0xFly)))()
-end)
+-- 4. FLY & BUTTONS EXECUTION
+LMG2L["FlyButton_4"].MouseButton1Click:Connect(function() loadstring(game:HttpGet(_0x1a(_0xFly)))() end)
+LMG2L["ToolboxButton_18"].MouseButton1Click:Connect(function() loadstring(game:HttpGet(_0x1a(_0xTool)))() end)
+LMG2L["ArchimedesButton_b"].MouseButton1Click:Connect(function() loadstring(game:HttpGet(_0x1a(_0xArch)))() end)
+LMG2L["TerrainButton_12"].MouseButton1Click:Connect(function() loadstring(game:HttpGet(_0x1a(_0xTerr)))() end)
 
 -- 5. SYSTEM PROFIL
 LMG2L["ProfilImage_19"].Image = Players:GetUserThumbnailAsync(LocalPlayer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
@@ -474,18 +469,3 @@ end
 LMG2L["SalinDisplaynameButton_1c"].MouseButton1Click:Connect(function() copyToClipboard(LocalPlayer.DisplayName) end)
 LMG2L["SalinUsernameButton_1b"].MouseButton1Click:Connect(function() copyToClipboard(LocalPlayer.Name) end)
 LMG2L["SalinIDButton_1d"].MouseButton1Click:Connect(function() copyToClipboard(tostring(LocalPlayer.UserId)) end)
-
--- 6. EXECUTE BUTTONS
-LMG2L["ToolboxButton_18"].MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet(_0x1a(_0xTool)))()
-end)
-
-LMG2L["ArchimedesButton_b"].MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet(_0x1a(_0xArch)))()
-end)
-
-LMG2L["TerrainButton_12"].MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet(_0x1a(_0xTerr)))()
-end)
-
-return LMG2L["ScreenGui_1"], require;
