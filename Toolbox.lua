@@ -1,3 +1,420 @@
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+
+designed using localmaze gui creator
+]=]
+
+-- Instances: 23 | Scripts: 1 | Modules: 0 | Tags: 0
+local LMG2L = {};
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui
+LMG2L["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+LMG2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel
+LMG2L["Panel_2"] = Instance.new("Frame", LMG2L["ScreenGui_1"]);
+LMG2L["Panel_2"]["BorderSizePixel"] = 2;
+LMG2L["Panel_2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["Panel_2"]["Size"] = UDim2.new(0, 260, 0, 331);
+LMG2L["Panel_2"]["Position"] = UDim2.new(0, 5, 0, 20);
+LMG2L["Panel_2"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["Panel_2"]["Name"] = [[Panel]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ModelButton
+LMG2L["ModelButton_3"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["ModelButton_3"]["BorderSizePixel"] = 0;
+LMG2L["ModelButton_3"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["ModelButton_3"]["BackgroundColor3"] = Color3.fromRGB(36, 36, 36);
+LMG2L["ModelButton_3"]["Size"] = UDim2.new(0, 88, 0, 20);
+LMG2L["ModelButton_3"]["BorderColor3"] = Color3.fromRGB(102, 102, 102);
+LMG2L["ModelButton_3"]["Text"] = [[MODEL]];
+LMG2L["ModelButton_3"]["Name"] = [[ModelButton]];
+LMG2L["ModelButton_3"]["Position"] = UDim2.new(0, 0, 0, 58);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.AssetId
+LMG2L["AssetId_4"] = Instance.new("TextBox", LMG2L["Panel_2"]);
+LMG2L["AssetId_4"]["Name"] = [[AssetId]];
+LMG2L["AssetId_4"]["BorderSizePixel"] = 2;
+LMG2L["AssetId_4"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["AssetId_4"]["BackgroundColor3"] = Color3.fromRGB(36, 36, 36);
+LMG2L["AssetId_4"]["Size"] = UDim2.new(0, 260, 0, 30);
+LMG2L["AssetId_4"]["Position"] = UDim2.new(0, 0, 0, 300);
+LMG2L["AssetId_4"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["AssetId_4"]["Text"] = [[Masukan ID Asset..]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.AssetId.SaveButton
+LMG2L["SaveButton_5"] = Instance.new("TextButton", LMG2L["AssetId_4"]);
+LMG2L["SaveButton_5"]["BorderSizePixel"] = 0;
+LMG2L["SaveButton_5"]["TextSize"] = 6;
+LMG2L["SaveButton_5"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["SaveButton_5"]["BackgroundColor3"] = Color3.fromRGB(29, 171, 223);
+LMG2L["SaveButton_5"]["Size"] = UDim2.new(0, 36, 0, 20);
+LMG2L["SaveButton_5"]["Text"] = [[SAVE]];
+LMG2L["SaveButton_5"]["Name"] = [[SaveButton]];
+LMG2L["SaveButton_5"]["Position"] = UDim2.new(0, 219, 0, 5);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.DecalButton
+LMG2L["DecalButton_6"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["DecalButton_6"]["BorderSizePixel"] = 0;
+LMG2L["DecalButton_6"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["DecalButton_6"]["BackgroundColor3"] = Color3.fromRGB(36, 36, 36);
+LMG2L["DecalButton_6"]["Size"] = UDim2.new(0, 88, 0, 20);
+LMG2L["DecalButton_6"]["BorderColor3"] = Color3.fromRGB(102, 102, 102);
+LMG2L["DecalButton_6"]["Text"] = [[DECAL]];
+LMG2L["DecalButton_6"]["Name"] = [[DecalButton]];
+LMG2L["DecalButton_6"]["Position"] = UDim2.new(0, 86, 0, 58);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.AudioButton
+LMG2L["AudioButton_7"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["AudioButton_7"]["BorderSizePixel"] = 0;
+LMG2L["AudioButton_7"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["AudioButton_7"]["BackgroundColor3"] = Color3.fromRGB(36, 36, 36);
+LMG2L["AudioButton_7"]["Size"] = UDim2.new(0, 86, 0, 20);
+LMG2L["AudioButton_7"]["BorderColor3"] = Color3.fromRGB(102, 102, 102);
+LMG2L["AudioButton_7"]["Text"] = [[AUDIO]];
+LMG2L["AudioButton_7"]["Name"] = [[AudioButton]];
+LMG2L["AudioButton_7"]["Position"] = UDim2.new(0, 174, 0, 58);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Title
+LMG2L["Title_8"] = Instance.new("TextLabel", LMG2L["Panel_2"]);
+LMG2L["Title_8"]["BorderSizePixel"] = 2;
+LMG2L["Title_8"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["Title_8"]["BackgroundColor3"] = Color3.fromRGB(22, 22, 22);
+LMG2L["Title_8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Title_8"]["Size"] = UDim2.new(0, 260, 0, 24);
+LMG2L["Title_8"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["Title_8"]["Text"] = [[             TOOLBOX  | NARAKU BETA]];
+LMG2L["Title_8"]["Name"] = [[Title]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Title.ImageLabel
+LMG2L["ImageLabel_9"] = Instance.new("ImageLabel", LMG2L["Title_8"]);
+LMG2L["ImageLabel_9"]["BorderSizePixel"] = 0;
+LMG2L["ImageLabel_9"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+-- LMG2L["ImageLabel_9"]["ImageContent"] = ;
+LMG2L["ImageLabel_9"]["Image"] = [[rbxassetid://129081537080130]];
+LMG2L["ImageLabel_9"]["Size"] = UDim2.new(0, 20, 0, 20);
+LMG2L["ImageLabel_9"]["BackgroundTransparency"] = 1;
+LMG2L["ImageLabel_9"]["Position"] = UDim2.new(0, 6, 0, 2);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.CloseButton
+LMG2L["CloseButton_a"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["CloseButton_a"]["BorderSizePixel"] = 0;
+LMG2L["CloseButton_a"]["TextStrokeColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["CloseButton_a"]["TextSize"] = 11;
+LMG2L["CloseButton_a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["CloseButton_a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["CloseButton_a"]["BackgroundTransparency"] = 1;
+LMG2L["CloseButton_a"]["Size"] = UDim2.new(0, 24, 0, 24);
+LMG2L["CloseButton_a"]["Text"] = [[🫪]];
+LMG2L["CloseButton_a"]["Name"] = [[CloseButton]];
+LMG2L["CloseButton_a"]["Position"] = UDim2.new(0, 234, 0, 0);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.GetAssetId
+LMG2L["GetAssetId_b"] = Instance.new("TextBox", LMG2L["Panel_2"]);
+LMG2L["GetAssetId_b"]["Name"] = [[GetAssetId]];
+LMG2L["GetAssetId_b"]["BorderSizePixel"] = 2;
+LMG2L["GetAssetId_b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["GetAssetId_b"]["BackgroundColor3"] = Color3.fromRGB(36, 36, 36);
+LMG2L["GetAssetId_b"]["Size"] = UDim2.new(0, 260, 0, 30);
+LMG2L["GetAssetId_b"]["Position"] = UDim2.new(0, 0, 0, 26);
+LMG2L["GetAssetId_b"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["GetAssetId_b"]["Text"] = [[Masukan ID Asset ..]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.GetAssetId.GetButton
+LMG2L["GetButton_c"] = Instance.new("TextButton", LMG2L["GetAssetId_b"]);
+LMG2L["GetButton_c"]["BorderSizePixel"] = 0;
+LMG2L["GetButton_c"]["TextSize"] = 6;
+LMG2L["GetButton_c"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["GetButton_c"]["BackgroundColor3"] = Color3.fromRGB(29, 171, 223);
+LMG2L["GetButton_c"]["Size"] = UDim2.new(0, 36, 0, 20);
+LMG2L["GetButton_c"]["Text"] = [[GET]];
+LMG2L["GetButton_c"]["Name"] = [[GetButton]];
+LMG2L["GetButton_c"]["Position"] = UDim2.new(0, 219, 0, 5);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame
+LMG2L["ScrollingFrame_d"] = Instance.new("ScrollingFrame", LMG2L["Panel_2"]);
+LMG2L["ScrollingFrame_d"]["BorderSizePixel"] = 2;
+LMG2L["ScrollingFrame_d"]["CanvasSize"] = UDim2.new(0, 0, 1, 0);
+LMG2L["ScrollingFrame_d"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["ScrollingFrame_d"]["Size"] = UDim2.new(0, 260, 0, 218);
+LMG2L["ScrollingFrame_d"]["ScrollBarImageColor3"] = Color3.fromRGB(81, 210, 255);
+LMG2L["ScrollingFrame_d"]["Position"] = UDim2.new(0, 0, 0, 80);
+LMG2L["ScrollingFrame_d"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["ScrollingFrame_d"]["ScrollBarThickness"] = 1;
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame.UIListLayout
+LMG2L["UIListLayout_e"] = Instance.new("UIListLayout", LMG2L["ScrollingFrame_d"]);
+LMG2L["UIListLayout_e"]["Padding"] = UDim.new(0, 3);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame.Frame
+LMG2L["Frame_f"] = Instance.new("Frame", LMG2L["ScrollingFrame_d"]);
+LMG2L["Frame_f"]["BorderSizePixel"] = 0;
+LMG2L["Frame_f"]["BackgroundColor3"] = Color3.fromRGB(36, 36, 36);
+LMG2L["Frame_f"]["Size"] = UDim2.new(0, 256, 0, 66);
+LMG2L["Frame_f"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame.Frame.SalinButton
+LMG2L["SalinButton_10"] = Instance.new("TextButton", LMG2L["Frame_f"]);
+LMG2L["SalinButton_10"]["BorderSizePixel"] = 0;
+LMG2L["SalinButton_10"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["SalinButton_10"]["BackgroundColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["SalinButton_10"]["Size"] = UDim2.new(0, 62, 0, 20);
+LMG2L["SalinButton_10"]["Text"] = [[Salin]];
+LMG2L["SalinButton_10"]["Name"] = [[SalinButton]];
+LMG2L["SalinButton_10"]["Position"] = UDim2.new(0, 190, 0, 18);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame.Frame.InsertButton
+LMG2L["InsertButton_11"] = Instance.new("TextButton", LMG2L["Frame_f"]);
+LMG2L["InsertButton_11"]["BorderSizePixel"] = 0;
+LMG2L["InsertButton_11"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["InsertButton_11"]["BackgroundColor3"] = Color3.fromRGB(29, 171, 223);
+LMG2L["InsertButton_11"]["Size"] = UDim2.new(0, 62, 0, 20);
+LMG2L["InsertButton_11"]["Text"] = [[Insert]];
+LMG2L["InsertButton_11"]["Name"] = [[InsertButton]];
+LMG2L["InsertButton_11"]["Position"] = UDim2.new(0, 190, 0, 42);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame.Frame.ImageAsset
+LMG2L["ImageAsset_12"] = Instance.new("ImageLabel", LMG2L["Frame_f"]);
+LMG2L["ImageAsset_12"]["BorderSizePixel"] = 0;
+LMG2L["ImageAsset_12"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["ImageAsset_12"]["Size"] = UDim2.new(0, 58, 0, 58);
+LMG2L["ImageAsset_12"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["ImageAsset_12"]["Name"] = [[ImageAsset]];
+LMG2L["ImageAsset_12"]["Position"] = UDim2.new(0, 4, 0, 4);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame.Frame.IdAsset
+LMG2L["IdAsset_13"] = Instance.new("TextLabel", LMG2L["Frame_f"]);
+LMG2L["IdAsset_13"]["BorderSizePixel"] = 0;
+LMG2L["IdAsset_13"]["TextSize"] = 7;
+LMG2L["IdAsset_13"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["IdAsset_13"]["TextYAlignment"] = Enum.TextYAlignment.Bottom;
+LMG2L["IdAsset_13"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["IdAsset_13"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["IdAsset_13"]["BackgroundTransparency"] = 1;
+LMG2L["IdAsset_13"]["Size"] = UDim2.new(0, 114, 0, 14);
+LMG2L["IdAsset_13"]["Text"] = [[ID :]];
+LMG2L["IdAsset_13"]["Name"] = [[IdAsset]];
+LMG2L["IdAsset_13"]["Position"] = UDim2.new(0, 68, 0, 46);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame.Frame.ByPemilikAsset
+LMG2L["ByPemilikAsset_14"] = Instance.new("TextLabel", LMG2L["Frame_f"]);
+LMG2L["ByPemilikAsset_14"]["BorderSizePixel"] = 0;
+LMG2L["ByPemilikAsset_14"]["TextSize"] = 6;
+LMG2L["ByPemilikAsset_14"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["ByPemilikAsset_14"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["ByPemilikAsset_14"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["ByPemilikAsset_14"]["BackgroundTransparency"] = 1;
+LMG2L["ByPemilikAsset_14"]["Size"] = UDim2.new(0, 132, 0, 12);
+LMG2L["ByPemilikAsset_14"]["Text"] = [[By]];
+LMG2L["ByPemilikAsset_14"]["Name"] = [[ByPemilikAsset]];
+LMG2L["ByPemilikAsset_14"]["Position"] = UDim2.new(0, 68, 0, 36);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.ScrollingFrame.Frame.NameAsset
+LMG2L["NameAsset_15"] = Instance.new("TextLabel", LMG2L["Frame_f"]);
+LMG2L["NameAsset_15"]["BorderSizePixel"] = 0;
+LMG2L["NameAsset_15"]["TextSize"] = 10;
+LMG2L["NameAsset_15"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["NameAsset_15"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+LMG2L["NameAsset_15"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["NameAsset_15"]["FontFace"] = Font.new([[rbxasset://fonts/families/Arial.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+LMG2L["NameAsset_15"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["NameAsset_15"]["BackgroundTransparency"] = 1;
+LMG2L["NameAsset_15"]["Size"] = UDim2.new(0, 118, 0, 30);
+LMG2L["NameAsset_15"]["Text"] = [[name asset]];
+LMG2L["NameAsset_15"]["Name"] = [[NameAsset]];
+LMG2L["NameAsset_15"]["Position"] = UDim2.new(0, 68, 0, 6);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.MainPanel
+LMG2L["MainPanel_16"] = Instance.new("LocalScript", LMG2L["ScreenGui_1"]);
+LMG2L["MainPanel_16"]["Name"] = [[MainPanel]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.PanahButton
+LMG2L["PanahButton_17"] = Instance.new("TextButton", LMG2L["ScreenGui_1"]);
+LMG2L["PanahButton_17"]["TextSize"] = 12;
+LMG2L["PanahButton_17"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["PanahButton_17"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["PanahButton_17"]["BackgroundTransparency"] = 0.3;
+LMG2L["PanahButton_17"]["Size"] = UDim2.new(0, 20, 0, 52);
+LMG2L["PanahButton_17"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["PanahButton_17"]["Text"] = [[<]];
+LMG2L["PanahButton_17"]["Name"] = [[PanahButton]];
+LMG2L["PanahButton_17"]["Position"] = UDim2.new(0, 270, 0, 152);
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.MainPanel
+local function C_16()
+	local script = LMG2L["MainPanel_16"];
+	
+	task.spawn(function()	
+	
+		--====================================================	
+		-- SERVICES	
+		--====================================================	
+		local TweenService = game:GetService("TweenService")	
+	
+		--====================================================	
+		-- GUI CORRECTION (SESUAI STRUKTUR BARU)	
+		--====================================================	
+		local Gui = script.Parent	
+	
+		local MainPanel = Gui:WaitForChild("Panel")	
+		local CloseButton = MainPanel:WaitForChild("CloseButton")	
+	
+		-- PANAH DI SCREENGUI
+		local PanahButton = Gui:WaitForChild("PanahButton")	
+	
+		--====================================================	
+		-- TWEEN INFO	
+		--====================================================	
+		local OpenTween = TweenInfo.new(	
+			0.35,	
+			Enum.EasingStyle.Quart,	
+			Enum.EasingDirection.Out	
+		)	
+	
+		local CloseTween = TweenInfo.new(	
+			0.3,	
+			Enum.EasingStyle.Quart,	
+			Enum.EasingDirection.In	
+		)	
+	
+		--====================================================	
+		-- KALIBRASI POSISI TWEEN (AKURAT DENGAN STRUKTUR BARU)	
+		--====================================================	
+		-- PANEL POSITION
+		local PANEL_OPEN = UDim2.new(0, 5, 0, 20)	
+		local PANEL_HIDE = UDim2.new(0, -270, 0, 20) -- Geser penuh ke kiri luar layar	
+	
+		-- PANAH BUTTON POSITION (Disesuaikan dari Y: 152 asli struktur baru Anda)
+		local ARROW_OPEN = UDim2.new(0, 270, 0, 152) -- Posisi default nempel di kanan panel	
+		local ARROW_HIDE = UDim2.new(0, 5, 0, 152)   -- Tetap di luar (sisi kiri layar) saat panel sembunyi	
+	
+		--====================================================	
+		-- STATE	
+		--====================================================	
+		local Hidden = false	
+		local Busy = false	
+	
+		--====================================================	
+		-- TOGGLE PANEL HANDLER	
+		--====================================================	
+		local function TogglePanel()	
+			if Busy then return end	
+			Busy = true	
+	
+			if not Hidden then	
+				-------------------------------------------------	
+				-- HIDE PANEL	
+				-------------------------------------------------	
+				Hidden = true	
+				PanahButton.Text = ">"	
+	
+				-- PANEL SEMBUNYI KE KIRI	
+				TweenService:Create(MainPanel, OpenTween, {Position = PANEL_HIDE}):Play()	
+	
+				-- PANAH BERGESER KE POJOK KIRI LAYAR (TETAP TERLIHAT)	
+				TweenService:Create(PanahButton, OpenTween, {Position = ARROW_HIDE}):Play()	
+			else	
+				-------------------------------------------------	
+				-- SHOW PANEL	
+				-------------------------------------------------	
+				Hidden = false	
+				PanahButton.Text = "<"	
+	
+				-- PANEL KEMBALI MUNCUL	
+				TweenService:Create(MainPanel, OpenTween, {Position = PANEL_OPEN}):Play()	
+	
+				-- PANAH KEMBALI KE POSISI ASLI	
+				TweenService:Create(PanahButton, OpenTween, {Position = ARROW_OPEN}):Play()	
+			end	
+	
+			task.wait(0.35)	
+			Busy = false	
+		end	
+	
+		--====================================================	
+		-- CLOSE GUI HANDLER (FADE OUT EFFECT)	
+		--====================================================	
+		local function CloseGui()	
+			if Busy then return end	
+			Busy = true	
+	
+			-- ANIMASI PANEL MENGECIL & TRANSPARAN	
+			TweenService:Create(MainPanel, CloseTween, {
+				Size = UDim2.new(0, 0, 0, 0),	
+				BackgroundTransparency = 1	
+			}):Play()	
+	
+			-- ANIMASI PANAH MENGHILANG	
+			TweenService:Create(PanahButton, CloseTween, {	
+				TextTransparency = 1,	
+				BackgroundTransparency = 1	
+			}):Play()	
+	
+			-- FADE OUT ELEMEN ANAK DI DALAM PANEL	
+			for _, v in ipairs(MainPanel:GetDescendants()) do	
+				if v:IsA("TextLabel") or v:IsA("TextButton") or v:IsA("TextBox") then	
+					TweenService:Create(v, CloseTween, {	
+						TextTransparency = 1,	
+						BackgroundTransparency = 1	
+					}):Play()	
+				elseif v:IsA("ImageLabel") or v:IsA("ImageButton") then	
+					TweenService:Create(v, CloseTween, {	
+						ImageTransparency = 1,	
+						BackgroundTransparency = 1	
+					}):Play()	
+				elseif v:IsA("Frame") or v:IsA("ScrollingFrame") then	
+					TweenService:Create(v, CloseTween, {	
+						BackgroundTransparency = 1	
+					}):Play()	
+				end	
+			end	
+	
+			task.wait(0.35)	
+	
+			if Gui then	
+				Gui:Destroy()	
+			end	
+		end	
+	
+		--====================================================	
+		-- CONNECTIONS	
+		--====================================================	
+		PanahButton.MouseButton1Click:Connect(TogglePanel)	
+		CloseButton.MouseButton1Click:Connect(CloseGui)	
+	
+	end)	
+end;
+
+-- Hanya jalankan fungsi perbaikan sekali saja
+task.spawn(C_16);
+		
 -- Players.EXDestructor01.PlayerGui.ScreenGui.MainPanel
 local function C_1e()
 	local script = LMG2L["MainPanel_16"] or LMG2L["MainPanel_1e"]; -- Menyesuaikan index instance baru Anda
