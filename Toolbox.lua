@@ -418,8 +418,6 @@ end;
 
 -- Hanya jalankan fungsi perbaikan sekali saja
 task.spawn(C_16);
-
-return LMG2L["ScreenGui_1"], require;
 	
 -- Players.EXDestructor01.PlayerGui.ScreenGui.MainPanel
 local function C_1e()
