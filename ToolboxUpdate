@@ -1,16 +1,27 @@
---[=[
- d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
-88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
-88      88    88    88            odD'      88      88    88 88ooo88 
-88  ooo 88    88    88          .88'        88      88    88 88~~~88 
-88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
- Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
-
-designed using localmaze gui creator
-]=]
-
--- Instances: 23 | Scripts: 1 | Modules: 0 | Tags: 0
+-- TOOLBOX STUDIO LITE ROBLOX 
 local LMG2L = {};
+
+-- Informasi Sistem
+local _sys_name = "TOOLBOX STUDIO LITE"
+local _dev_name = "BY NARAKU BETA"
+local _load_msg = "Script Berhasil Dimuat!"
+
+-- Menambahkan sedikit delay dan print yang lebih profesional beserta list fitur utama
+task.spawn(function()
+    task.wait(0.5) -- Memberikan jeda singkat agar print tidak tumpang tindih
+    print("--------------------------------------------------")
+    print(" ▶ SYSTEM    : " .. _sys_name)
+    print(" ▶ DEVELOPER : " .. _dev_name)
+    print(" ▶ STATUS    : System Toolbox Complete")
+    print(" ▶ INFO      : " .. _load_msg)
+    print("--------------------------------------------------")
+    print(" [FEATURE LIST & CAPABILITIES] :")
+    print(" 1. Save ID Asset   -> Menyimpan & mengelompokkan ID secara lokal (Model/Decal/Audio)")
+    print(" 2. Share & Copy    -> Fitur salin ID instan ke Clipboard untuk dibagikan")
+    print(" 3. Smart Search    -> Memfilter & mencari asset tersimpan berdasarkan Nama atau ID")
+    print(" 4. Auto-Fallback   -> Jika Studio Lite tidak mendukung, otomatis dialihkan ke Studio Resmi")
+    print("--------------------------------------------------")
+end)
 
 -- Players.EXDestructor01.PlayerGui.ScreenGui
 LMG2L["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
