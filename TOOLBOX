@@ -1,7 +1,22 @@
--- NARAKU PLUGIN STUDIO LITE ROBLOX 
--- TOOLBOX 
+-- TOOLBOX PLUGIN STUDIO LITE ROBLOX 
+-- NARAKUB BETA
 
 local LMG2L = {};
+
+-- Informasi Sistem
+local _sys_name = "TOOLBOX STUDIO LITE"
+local _dev_name = "BY NARAKU BETA"
+local _load_msg = "Script Berhasil Dimuat!"
+
+-- Menambahkan sedikit delay dan print yang lebih profesional
+task.spawn(function()
+    print("--------------------------------------------------")
+    print(_sys_name)
+    print(_dev_name)
+    print("Status: System Toolbox Complete")
+    print(_load_msg)
+    print("--------------------------------------------------")
+end)
 
 -- Players.EXDestructor01.PlayerGui.ScreenGui
 LMG2L["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
