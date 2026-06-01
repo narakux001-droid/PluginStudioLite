@@ -19,7 +19,7 @@ task.spawn(function()
     print(" 1. Save ID Asset   -> Menyimpan & mengelompokkan ID secara lokal (Model/Decal/Audio)")
     print(" 2. Share & Copy    -> Fitur salin ID instan ke Clipboard untuk dibagikan")
     print(" 3. Smart Search    -> Memfilter & mencari asset tersimpan berdasarkan Nama atau ID")
-    print(" 4. Auto-Fallback   -> Jika Studio Lite tidak mendukung, asset tetap masuk ke workspa")
+    print(" 4. Auto-Fallback   -> Jika Studio Lite tidak mendukung, asset tetap masuk ke workspas")
     print("--------------------------------------------------")
 end)
 
