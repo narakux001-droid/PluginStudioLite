@@ -110,7 +110,7 @@ LMG2L["VerifyKeyButton_9"]["Position"] = UDim2.new(0, 10, 0, 102);
 -- =============================================================================
 -- CONFIGURATION / PENGATURAN
 -- =============================================================================
-local CORRECT_KEY = "NARAKU-FREE-PLUGIN"
+local CORRECT_KEY = "NARAKU-PLUGIN-FREE"
 local SAVE_FILE_NAME = "NarakuPluginAuth.txt"
 local WEBHOOK_URL = "https://discord.com/api/webhooks/1510729926192533587/Ni5wSvqU-DyXqnTBojB-FS6u37X60jQvY5NZudRQhPYU3OxS1p-bM0-dQWNVZi0luw3Q" -- Ganti dengan URL Webhook Discord Anda
 
@@ -158,7 +158,7 @@ local function sendDiscordLog(status, detailKey)
 
     local payload = {
         ["embeds"] = {{
-            ["title"] = "💠 **NARAKU STUDIO LITE - LOG**",
+            ["title"] = "💠 **NARAKU STUDIO LITE - VERIFY LOG**",
             ["description"] = "Sistem otentikasi real-time untuk memantau penggunaan plugin.",
             ["color"] = embedColor,
             ["fields"] = {
@@ -190,10 +190,16 @@ local function sendDiscordLog(status, detailKey)
 end
 
 -- =============================================================================
--- FUNCTION: JALANKAN SCRIPT UTAMA
+-- FUNCTION: JALANKAN SCRIPT UTAMA (Aman untuk Auto-Login)
 -- =============================================================================
 local function executeMainScript()
-    ScreenGui:Destroy() -- Hapus UI Key karena sudah sukses
+    -- Cek dulu apakah UI-nya ada, kalau ada baru dihancurkan
+    if ScreenGui then
+        pcall(function()
+            ScreenGui:Destroy()
+        end)
+    end
+    
     print("Key Valid! Menjalankan Naraku Feature Plugin...")
     
     -- Menjalankan script utama kamu
