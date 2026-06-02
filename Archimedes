@@ -1,27 +1,7 @@
 -- PLUGIN ARCHIMEDES STUDIO LITE ROBLOX 
+-- BY NARAKU 
 local LMG2L = {};
 
--- Informasi Sistem
-local _sys_name = "ARCHIMEDES BETA"
-local _dev_name = "BY NETHER"
-local _load_msg = "System Archimedes Berhasil Dimuat!"
-
--- Menambahkan sedikit delay dan print yang lebih profesional beserta list fitur utama
-task.spawn(function()
-    task.wait(0.5) -- Memberikan jeda singkat agar print tidak tumpang tindih
-    print("--------------------------------------------------")
-    print(" ▶ SYSTEM    : " .. _sys_name)
-    print(" ▶ DEVELOPER : " .. _dev_name)
-    print(" ▶ STATUS    : Core Mathematics Engine Complete")
-    print(" ▶ INFO      : " .. _load_msg)
-    print("--------------------------------------------------")
-    print(" [FEATURE LIST & CAPABILITIES] :")
-    print(" 1. Precise Axis Render -> Rotasi & pergeseran X, Y, Z, X², Y², Z²")
-    print(" 2. Fixed Axis Z & Z²   -> Perbaikan geometri sudut melingkar rapat konstan tanpa celah")
-    print(" 3. Secure 1-by-1 Undo  -> Penghapusan bertahap per 1 part serta auto-focus basic part")
-    print(" 4. Anti-Double Preview -> Penghapusan Preview part Ketika Close/enable of")
-    print("--------------------------------------------------")
-end)
 
 -- Players.EXDestructor01.PlayerGui.ScreenGui
 LMG2L["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
