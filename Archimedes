@@ -3,7 +3,7 @@ local LMG2L = {};
 
 -- Informasi Sistem
 local _sys_name = "ARCHIMEDES BETA"
-local _dev_name = "BY NARAKU"
+local _dev_name = "BY NETHER"
 local _load_msg = "System Archimedes Berhasil Dimuat!"
 
 -- Menambahkan sedikit delay dan print yang lebih profesional beserta list fitur utama
@@ -197,7 +197,7 @@ LMG2L["Keterangan_12"]["BackgroundColor3"] = Color3.fromRGB(38, 38, 38);
 LMG2L["Keterangan_12"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 LMG2L["Keterangan_12"]["Size"] = UDim2.new(0, 258, 0, 28);
 LMG2L["Keterangan_12"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
-LMG2L["Keterangan_12"]["Text"] = [[  •   Plugin Archimedes By Naraku Beta ]];
+LMG2L["Keterangan_12"]["Text"] = [[  •   Plugin Archimedes By NETHER BETA ]];
 LMG2L["Keterangan_12"]["Name"] = [[Keterangan]];
 LMG2L["Keterangan_12"]["Position"] = UDim2.new(0, 0, 0, 278);
 
