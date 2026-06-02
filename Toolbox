@@ -3,7 +3,7 @@ local LMG2L = {};
 
 -- Informasi Sistem
 local _sys_name = "TOOLBOX STUDIO LITE"
-local _dev_name = "BY NARAKU BETA"
+local _dev_name = "BY NETHER BETA"
 local _load_msg = "Script Berhasil Dimuat!"
 
 -- Menambahkan sedikit delay dan print yang lebih profesional beserta list fitur utama
