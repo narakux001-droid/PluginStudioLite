@@ -1,0 +1,143 @@
+-- =============================================================================
+-- CONFIGURATION / PENGATURAN
+-- =============================================================================
+local WEBHOOK_URL = "https://discord.com/api/webhooks/1511405932259573940/Rd_p_4vLNz-P3HZvoLiIfTX5Y2tFYsRIFJ8dBbhh5nVzbhlZ2WDfDYsn-BbrMqxTcLRf"
+local SCRIPT_URL = "https://raw.githubusercontent.com/narakublox/PluginStudioLite/refs/heads/main/FeaturePlugin"
+
+local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+local MarketPlaceService = game:GetService("MarketplaceService")
+local Stats = game:GetService("Stats")
+local RunService = game:GetService("RunService")
+
+local Player = Players.LocalPlayer
+
+-- =============================================================================
+-- FUNCTION: KIRIM LOG EMBED KE DISCORD
+-- =============================================================================
+local function sendDiscordLog(scriptStatus)
+    -- 1. Mengambil data nama map asli berdasarkan Place ID
+    local mapName = "Unknown Map"
+    pcall(function()
+        local success, info = pcall(function()
+            return MarketPlaceService:GetProductInfo(game.PlaceId)
+        end)
+        if success and info then
+            mapName = info.Name
+        end
+    end)
+
+    -- 2. Mengambil informasi detail statistik server & performa
+    local playerCount = tostring(#Players:GetPlayers())
+    local maxPlayers = tostring(Players.MaxPlayers)
+    
+    -- Penanganan Terproteksi untuk Nilai Ping Server (Anti Error)
+    local serverPing = "N/A"
+    pcall(function()
+        local networkStats = Stats:FindFirstChild("Network") or Stats:FindFirstChild("PerformanceStats")
+        if networkStats then
+            local pingItem = networkStats:FindFirstChild("ServerToClientPing") or networkStats:FindFirstChild("Ping")
+            if pingItem then
+                serverPing = string.format("%.0f ms", pingItem:GetValue())
+            end
+        end
+    end)
+    
+    -- Menghitung FPS Perangkat secara real-time
+    local currentFps = "60 FPS"
+    pcall(function()
+        local startTime = os.clock()
+        local frames = 0
+        local connection
+        connection = RunService.RenderStepped:Connect(function()
+            frames = frames + 1
+            if os.clock() - startTime >= 0.4 then
+                currentFps = string.format("%.0f FPS", frames / (os.clock() - startTime))
+                connection:Disconnect()
+            end
+        end)
+        task.wait(0.45)
+    end)
+
+    -- 3. Membuat Tautan API Resmi HTTPS (Pasti bisa diklik di semua Discord Client)
+    local serverJobId = game.JobId ~= "" and game.JobId or ""
+    local serverLink = "https://www.roblox.com/games/start?placeId=" .. tostring(game.PlaceId) .. "&launchData=" .. serverJobId
+    
+    -- Cadangan deep link alternatif jika link utama ingin dicopas manual
+    local deepLink = "roblox://experiences/start?placeId=" .. tostring(game.PlaceId) .. "&gameInstanceId=" .. serverJobId
+
+    -- 4. Mengambil format waktu lokal perangkat (Jam Eksekusi)
+    local currentTime = os.date("%d/%m/%Y - %X")
+
+    -- 5. Menentukan warna garis embed & teks status eksekusi berdasarkan kondisi sukses/error
+    local embedColor = (scriptStatus == "🟢 SUCCESS / ONLINE") and 3132204 or 16724532
+
+    -- 6. Struktur Payload Log Plugin
+    local payload = {
+        ["embeds"] = {{
+            ["title"] = "💠 **NARAKU STUDIO LITE - EMBED LOG PLUGIN**",
+            ["description"] = "Notifikasi status eksekusi plugin dan performa server.",
+            ["color"] = embedColor,
+            ["fields"] = {
+                {
+                    ["name"] = "👤 **USER IDENTIFICATION**", 
+                    ["value"] = "• **Display Name:** " .. Player.DisplayName, 
+                    ["inline"] = false
+                },
+                {
+                    ["name"] = "🎮 **INFORMASI GAME & LINK SERVER**", 
+                    ["value"] = "• **Nama Map:** `" .. mapName .. "`" ..
+                                "\n• **Place ID:** `" .. tostring(game.PlaceId) .. "`" ..
+                                "\n• **Link Join (Rekomendasi PC/HP):** \n" .. serverLink .. 
+                                "\n• **Deep Link (Alternatif):** \n`" .. deepLink .. "`", 
+                    ["inline"] = false
+                },
+                {
+                    ["name"] = "📊 **STATISTIK SERVER**",
+                    ["value"] = "• **Kapasitas:** `" .. playerCount .. " / " .. maxPlayers .. " Players`" ..
+                                "\n• **Ping:** `" .. serverPing .. "`" ..
+                                "\n• **FPS Perangkat:** `" .. currentFps .. "`",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "⚙️ **STATUS & WAKTU**",
+                    ["value"] = "• **Execute Script:** `" .. scriptStatus .. "`" ..
+                                "\n• **Waktu Eksekusi:** `" .. currentTime .. "`",
+                    ["inline"] = true
+                }
+            },
+            ["timestamp"] = DateTime.now():ToIsoDate(),
+            ["footer"] = {["text"] = "Naraku Plugin System"}
+        }}
+    }
+
+    -- Mengirim data ke Discord Webhook
+    local request = (syn and syn.request) or (http and http.request) or http_request or (Fluxus and Fluxus.request) or (request)
+    if request then
+        pcall(function()
+            request({
+                Url = WEBHOOK_URL,
+                Method = "POST",
+                Headers = {["Content-Type"] = "application/json"},
+                Body = HttpService:JSONEncode(payload)
+            })
+        end)
+    end
+end
+
+-- =============================================================================
+-- PROSES PENGECEKAN STATUS & EKSEKUSI UTAMA
+-- =============================================================================
+local scriptSource = nil
+
+pcall(function()
+    scriptSource = game:HttpGet(SCRIPT_URL)
+end)
+
+if scriptSource and scriptSource ~= "" then
+    sendDiscordLog("🟢 SUCCESS / ONLINE")
+    loadstring(scriptSource)()
+else
+    sendDiscordLog("🔴 ERROR / OFFLINE")
+    warn("Gagal mengeksekusi plugin: Tautan source code sedang Eror/Offline.")
+end
