@@ -140,6 +140,10 @@ openBtn.TextSize            = 20
 openBtn.TextColor3          = Color3.fromRGB(140,200,255)
 openBtn.Font                = Enum.Font.GothamBold
 openBtn.AutoButtonColor     = false
+
+openBtn.Active             = true 
+openBtn.Draggable          = true
+
 corner(openBtn, 8)
 stroke(openBtn, Color3.fromRGB(80,130,220), 1.5)
 
