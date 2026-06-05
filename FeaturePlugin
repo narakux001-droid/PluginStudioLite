@@ -381,7 +381,7 @@ local LocalPlayer = Players.LocalPlayer
 
 -- Daftar URL Langsung (Tanpa Disamarkan untuk Mempermudah Update)
 local urlFly        = "https://pastefy.app/ofUG7Jsv/raw"
-local urlToolbox    = "https://raw.githubusercontent.com/narakublox/PluginStudioLite/refs/heads/main/Toolbox"
+local urlToolbox    = "https://raw.githubusercontent.com/narakublox/PluginStudioLite/refs/heads/main/UpdateToolbox"
 local urlArchimedes = "https://raw.githubusercontent.com/narakublox/PluginStudioLite/refs/heads/main/Archimedes"
 local urlTerrain    = "https://pastefy.app/GUfD6qc6/raw"
 
