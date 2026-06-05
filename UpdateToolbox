@@ -888,7 +888,7 @@ local function C_1e()
 			elseif tabName == "Audio" then AudioButton.BackgroundColor3 = COLOR_ACTIVE end
 			
 			-- Kosongkan kotak ketikan pencarian saat berpindah kategori agar list tidak rancu
-			SearchAssetBox.Text = "Cari Asset.."
+			SearchAssetBox.Text = "Search Asset.."
 			RenderAssets()
 		end
 
