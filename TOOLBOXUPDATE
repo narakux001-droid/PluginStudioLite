@@ -433,8 +433,6 @@ local function C_16()
 end;
 task.spawn(C_16);
 
-return LMG2L["ScreenGui_1"], require;
-
 -- Players.EXDestructor01.PlayerGui.ScreenGui.MainPanel
 local function C_1e()
 	local script = LMG2L["MainPanel_16"] or LMG2L["MainPanel_1e"]; -- Menyesuaikan index instance baru Anda
