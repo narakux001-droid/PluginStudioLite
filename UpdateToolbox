@@ -920,13 +920,13 @@ local function C_1e()
 		-- FUNGSIONALITAS 2: SEARCH BUTTON (Memfilter list internal secara real-time)
 		SearchButton.MouseButton1Click:Connect(function()
 			local inputText = SearchAssetBox.Text
-			if inputText == "" or inputText:lower() == "cari asset.." then
+			if inputText == "" or inputText:lower() == "search asset.." then
 				RenderAssets()
 			else
 				SearchButton.Text = "FIND"
 				RenderAssets(inputText)
 				task.wait(1)
-				SearchButton.Text = "CARI"
+				SearchButton.Text = "SEARCH"
 			end
 		end)
 
@@ -934,9 +934,9 @@ local function C_1e()
 		SearchAssetBox:GetPropertyChangedSignal("Text"):Connect(function()
 			local currentText = SearchAssetBox.Text
 			local lowerText = currentText:lower()
-			if currentText ~= "" and lowerText ~= "cari asset.." then
+			if currentText ~= "" and lowerText ~= "search asset.." then
 				RenderAssets(currentText)
-			elseif currentText == "" or lowerText == "cari asset.." then
+			elseif currentText == "" or lowerText == "search asset.." then
 				RenderAssets()
 			end
 		end)
