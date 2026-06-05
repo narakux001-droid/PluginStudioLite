@@ -453,43 +453,6 @@ local angleBox      = LMG2L["AngleBox_7"]
 local uiStrokeAngle = LMG2L["UIStroke_6"]
 local amountBox     = LMG2L["Jumlah_15"]
 
-        --====================================================	
-		-- SUPER PROTEKSI ANTI-HILANG (LOOP RE-SPAWN)	
-		--====================================================	
-		local CoreGui = game:GetService("CoreGui")
-		local RunService = game:GetService("RunService")
-		
-		if Gui and Gui:IsA("ScreenGui") then
-			Gui.ResetOnSpawn = false
-			pcall(function() Gui.Parent = CoreGui end)
-		end
-
-		-- Detektor jika user sengaja menekan tombol Close bawaan UI
-		local IsSengajaDihapus = false
-		CloseButton.MouseButton1Click:Connect(function()
-			IsSengajaDihapus = true
-		end)
-
-		-- LOOP CHECKER: Jika kehapus paksa oleh Studio Lite saat STOP, dia otomatis muncul lagi
-		task.spawn(function()
-			while not IsSengajaDihapus do
-				task.wait(0.5)
-				if Gui and Gui.Parent ~= CoreGui and not IsSengajaDihapus then
-					pcall(function() 
-						Gui.Parent = CoreGui 
-					end)
-				elseif not Gui or not Gui:IsDescendantOf(CoreGui) then
-					if not IsSengajaDihapus then
-						warn("⚠️ UI Terhapus oleh Studio Lite! Memulihkan UI Archimedes...")
-						-- Memaksa UI untuk aktif kembali jika dihancurkan system
-						pcall(function()
-							LMG2L["ScreenGui_1"].Parent = CoreGui
-						end)
-					end
-				end
-			end
-		end)
-
 -- Komponen Sakelar Toggle
 local toggleComponents = {
 	["FlipAxis"]  = LMG2L["ToogleButton_1b"],
