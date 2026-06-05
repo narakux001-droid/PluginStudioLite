@@ -133,7 +133,7 @@ LMG2L["GetButton_c"]["TextSize"] = 6;
 LMG2L["GetButton_c"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 LMG2L["GetButton_c"]["BackgroundColor3"] = Color3.fromRGB(29, 171, 223);
 LMG2L["GetButton_c"]["Size"] = UDim2.new(0, 36, 0, 20);
-LMG2L["GetButton_c"]["Text"] = [[CARI]];
+LMG2L["GetButton_c"]["Text"] = [[SEARCH]];
 LMG2L["GetButton_c"]["Name"] = [[SearchButton]];
 LMG2L["GetButton_c"]["Position"] = UDim2.new(0, 219, 0, 5);
 
@@ -146,7 +146,7 @@ LMG2L["Title_d"]["BackgroundColor3"] = Color3.fromRGB(22, 22, 22);
 LMG2L["Title_d"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 LMG2L["Title_d"]["Size"] = UDim2.new(0, 260, 0, 24);
 LMG2L["Title_d"]["BorderColor3"] = Color3.fromRGB(59, 59, 59);
-LMG2L["Title_d"]["Text"] = [[             TOOLBOX  | NARAKU BETA]];
+LMG2L["Title_d"]["Text"] = [[             TOOLBOX BY NARAKU BETA]];
 LMG2L["Title_d"]["Name"] = [[Title]];
 
 
