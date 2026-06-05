@@ -287,25 +287,28 @@ local function C_16()
 		--====================================================	
 		local TweenService = game:GetService("TweenService")	
 		local Players = game:GetService("Players")
-		local CoreGui = game:GetService("CoreGui") -- Ditambahkan untuk proteksi tingkat tinggi
 		local LocalPlayer = Players.LocalPlayer
 		local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 	
 		--====================================================	
 		-- GUI CORRECTION (SESUAI STRUKTUR BARU)	
 		--====================================================	
+		-- Berdasarkan struktur Anda: Panel berada langsung di bawah ScreenGui_1
 		local MainPanel = LMG2L["Panel_2"]
 		local Gui = MainPanel.Parent -- Menuju ScreenGui_1
 		local CloseButton = MainPanel:WaitForChild("CloseButton")	
+	
+		-- PANAH DI SCREENGUI (Berdasarkan indeks LMG2L struktur Anda)
 		local PanahButton = Gui:WaitForChild("PanahButton")	
 
-		--====================================================	
+        --====================================================	
 		-- SYSTEM PROTEKSI ANTI-HILANG (PLAY & STOP SAFE)	
 		--====================================================	
+		local CoreGui = game:GetService("CoreGui")
 		if Gui and Gui:IsA("ScreenGui") then
-			Gui.ResetOnSpawn = false -- Syarat 1: Biar gak kehapus saat karakter ke-spawn ulang
+			Gui.ResetOnSpawn = false -- Mencegah Roblox menghapus UI saat ganti mode / spawn karakter
 			
-			-- Syarat 2: Pindahkan Parent ke CoreGui agar aman dari sapuan "ClearWorkspace" atau rollback JSON Studio Lite
+			-- Pindahkan Parent ke CoreGui agar kebal dari pembersihan JSON Studio Lite
 			pcall(function()
 				Gui.Parent = CoreGui
 			end)
@@ -314,6 +317,7 @@ local function C_16()
 		--====================================================	
 		-- ANTI-INFINITE YIELD FIX (UNTUK MAP LAIN)	
 		--====================================================	
+		-- Melindungi skrip agar tidak macet/mogok di map biasa yang tidak memuat StudioLite
 		local StudioLiteFolder = game:GetService("ReplicatedStorage"):WaitForChild("StudioLiteFolder", 3)
 		local StudioGui = PlayerGui:WaitForChild("StudioGui", 3)
 		local ExplorerPanel = StudioGui and StudioGui:WaitForChild("ExplorerPanel", 3)
@@ -336,11 +340,13 @@ local function C_16()
 		--====================================================	
 		-- KALIBRASI POSISI TWEEN (AKURAT DENGAN STRUKTUR BARU)	
 		--====================================================	
+		-- PANEL POSITION
 		local PANEL_OPEN = UDim2.new(0, 5, 0, 20)	
-		local PANEL_HIDE = UDim2.new(0, -270, 0, 20)	
+		local PANEL_HIDE = UDim2.new(0, -270, 0, 20) -- Geser penuh ke kiri luar layar	
 	
-		local ARROW_OPEN = UDim2.new(0, 270, 0, 152)	
-		local ARROW_HIDE = UDim2.new(0, 5, 0, 152)   
+		-- PANAH BUTTON POSITION (Disesuaikan dari Y: 152 asli struktur baru Anda)
+		local ARROW_OPEN = UDim2.new(0, 270, 0, 152) -- Posisi default nempel di kanan panel	
+		local ARROW_HIDE = UDim2.new(0, 5, 0, 152)   -- Tetap di luar (sisi kiri layar) saat panel sembunyi	
 	
 		--====================================================	
 		-- STATE	
@@ -356,14 +362,28 @@ local function C_16()
 			Busy = true	
 	
 			if not Hidden then	
+				-------------------------------------------------	
+				-- HIDE PANEL	
+				-------------------------------------------------	
 				Hidden = true	
 				PanahButton.Text = ">"	
+	
+				-- PANEL SEMBUNYI KE KIRI	
 				TweenService:Create(MainPanel, OpenTween, {Position = PANEL_HIDE}):Play()	
+	
+				-- PANAH BERGESER KE POJOK KIRI LAYAR (TETAP TERLIHAT)	
 				TweenService:Create(PanahButton, OpenTween, {Position = ARROW_HIDE}):Play()	
 			else	
+				-------------------------------------------------	
+				-- SHOW PANEL	
+				-------------------------------------------------	
 				Hidden = false	
 				PanahButton.Text = "<"	
+	
+				-- PANEL KEMBALI MUNCUL	
 				TweenService:Create(MainPanel, OpenTween, {Position = PANEL_OPEN}):Play()	
+	
+				-- PANAH KEMBALI KE POSISI ASLI	
 				TweenService:Create(PanahButton, OpenTween, {Position = ARROW_OPEN}):Play()	
 			end	
 	
@@ -378,16 +398,19 @@ local function C_16()
 			if Busy then return end	
 			Busy = true	
 	
+			-- ANIMASI PANEL MENGECIL & TRANSPARAN	
 			TweenService:Create(MainPanel, CloseTween, {
 				Size = UDim2.new(0, 0, 0, 0),	
 				BackgroundTransparency = 1	
 			}):Play()	
 	
+			-- ANIMASI PANAH MENGHILANG	
 			TweenService:Create(PanahButton, CloseTween, {	
 				TextTransparency = 1,	
 				BackgroundTransparency = 1	
 			}):Play()	
 	
+			-- FADE OUT ELEMEN ANAK DI DALAM PANEL	
 			for _, v in ipairs(MainPanel:GetDescendants()) do	
 				if v:IsA("TextLabel") or v:IsA("TextButton") or v:IsA("TextBox") then	
 					TweenService:Create(v, CloseTween, {	
