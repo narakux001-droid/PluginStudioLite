@@ -453,6 +453,20 @@ local angleBox      = LMG2L["AngleBox_7"]
 local uiStrokeAngle = LMG2L["UIStroke_6"]
 local amountBox     = LMG2L["Jumlah_15"]
 
+--====================================================	
+-- SYSTEM PROTEKSI ANTI-HILANG (PLAY & STOP SAFE)	
+--====================================================	
+local CoreGui = game:GetService("CoreGui")
+
+if screenGui and screenGui:IsA("ScreenGui") then
+    screenGui.ResetOnSpawn = false -- Mencegah UI terhapus saat karakter spawn/ganti mode
+    
+    -- Pindahkan Parent ke CoreGui agar aman dari sistem rollback JSON Studio Lite
+    pcall(function()
+        screenGui.Parent = CoreGui
+    end)
+end
+
 -- Komponen Sakelar Toggle
 local toggleComponents = {
 	["FlipAxis"]  = LMG2L["ToogleButton_1b"],
