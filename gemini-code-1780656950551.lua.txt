@@ -1,0 +1,524 @@
+-- Players.EXDestructor01.PlayerGui.ScreenGui.MainPanel
+local function C_1e()
+	local script = LMG2L["MainPanel_16"] or LMG2L["MainPanel_1e"]; -- Menyesuaikan index instance baru Anda
+	
+	task.spawn(function()	
+		-------------------------------------------------------------------------
+		-- SERVICES & STUDIO LITE BINDINGS
+		-------------------------------------------------------------------------
+		local TweenService = game:GetService("TweenService")	
+		local MarketplaceService = game:GetService("MarketplaceService")
+		local HttpService = game:GetService("HttpService")
+		local Players = game:GetService("Players")
+		local LocalPlayer = Players.LocalPlayer
+		local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+		
+		-- Memberikan timeout agar tidak terjadi infinite yield saat dimainkan di map luar Studio Lite
+		local StudioLiteFolder = game:GetService("ReplicatedStorage"):WaitForChild("StudioLiteFolder", 3)
+		local LoadAssetRemote = StudioLiteFolder and StudioLiteFolder:WaitForChild("LoadAssetModelToPlayerGuiServerFunction", 3)
+		local ClearAssetRemote = StudioLiteFolder and StudioLiteFolder:WaitForChild("ClearAssetModelToPlayerGuiServerFunction", 3)
+		
+		-- Integrasi Explorer Panel Studio Lite untuk Get/Set Selection Decal (Aman dengan timeout)
+		local StudioGui = PlayerGui:WaitForChild("StudioGui", 3)
+		local ExplorerPanel = StudioGui and StudioGui:WaitForChild("ExplorerPanel", 3)
+		local GetSelection = ExplorerPanel and ExplorerPanel:WaitForChild("GetSelection", 3)
+		local SetSelection = ExplorerPanel and ExplorerPanel:WaitForChild("SetSelection", 3)
+		
+		-- File System Fallback untuk berbagai Executor
+		local writefile = writefile or io.writefile
+		local readfile = readfile or io.readfile
+		local isfile = isfile or io.isfile
+		local makefolder = makefolder or io.makefolder
+		local setclipboard = setclipboard or toclipboard or print
+
+		-------------------------------------------------------------------------
+		-- PEMANGGILAN OBJEK UI (100% SINKRON DENGAN STRUKTUR SCREENGUI TERBARU ANDA)
+		-------------------------------------------------------------------------
+		local MainPanel = LMG2L["Panel_2"]	
+		local Gui = MainPanel.Parent -- ScreenGui_1
+		
+		-- Tab Filter Buttons
+		local ModelButton = LMG2L["ModelButton_7"]
+		ModelButton.Name = "ModelButton"
+		
+		local DecalButton = LMG2L["DecalButton_8"]
+		DecalButton.Name = "DecalButton"
+		
+		local AudioButton = LMG2L["AudioButton_9"]
+		AudioButton.Name = "AudioButton"
+		
+		-- Bagian Atas Panel (Fungsi GET ID ke Workspace)
+		local GetAssetIdBox = LMG2L["GetAssetId_3"]
+		local GetButton = LMG2L["GetButton_4"]
+		GetButton.Name = "GetButton"
+		
+		-- Bagian Atas Panel (Fungsi SEARCH/CARI FILTER LIST)
+		local SearchAssetBox = LMG2L["SearchAsset_b"]
+		local SearchButton = LMG2L["GetButton_c"] -- TextButton CARI di dalam SearchAsset_b
+		SearchButton.Name = "SearchButton"
+		
+		-- Bagian Bawah Panel (Fungsi SAVE)
+		local AssetIdBox = LMG2L["AssetId_5"]
+		local SaveButton = LMG2L["SaveButton_6"]
+		SaveButton.Name = "SaveButton"
+		
+		-- List Kontainer dan Item Template
+		local ScrollingFrame = LMG2L["ScrollingFrame_f"]
+		local TemplateFrame = LMG2L["Frame_11"] -- Target template item list abang
+		
+		-- Memutus Template Master dari susunan UIListLayout agar tidak tampil sebagai sampah list kosong
+		TemplateFrame.Visible = false 
+		TemplateFrame.Parent = nil
+
+		-------------------------------------------------------------------------
+		-- DATA CONFIGURATION & LOCAL STORAGE SYSTEM
+		-------------------------------------------------------------------------
+		local CurrentCategory = "Model" 
+		local SavedAssets = {
+			Model = {89464989224212, 16063473188},
+			Decal = {4846381420},
+			Audio = {118149279616179, 124112959171614}
+		}
+
+		local COLOR_ACTIVE = Color3.fromRGB(29, 171, 223)   
+		local COLOR_INACTIVE = Color3.fromRGB(36, 36, 36) 
+
+		-- Memuat data tersimpan dari file sistem executor (jika didukung)
+		if makefolder and isfile and readfile then
+			pcall(function()
+				makefolder("delta")
+				if isfile("delta/toolbox_assets.json") then
+					local decoded = HttpService:JSONDecode(readfile("delta/toolbox_assets.json"))
+					if decoded then SavedAssets = decoded end
+				end
+			end)
+		end
+
+		-- Menyimpan data ke file sistem executor
+		local function SaveData()
+			if writefile then
+				pcall(function()
+					writefile("delta/toolbox_assets.json", HttpService:JSONEncode(SavedAssets))
+				end)
+			end
+		end
+
+		-- Membersihkan isi list rendering lama
+		local function ClearList()
+			for _, item in ipairs(ScrollingFrame:GetChildren()) do
+				if item:IsA("Frame") then
+					item:Destroy()
+				end
+			end
+		end
+
+		-------------------------------------------------------------------------
+		-- LOGIKA DETEKSI KATEGORI OTOMATIS BERDASARKAN ROBLOX MARKETPLACE ID
+		-------------------------------------------------------------------------
+		local function GetCategoryFromAssetType(assetTypeId)
+			if assetTypeId == 13 or assetTypeId == 1 or assetTypeId == 2 or assetTypeId == 14 then
+				return "Decal"
+			elseif assetTypeId == 3 or assetTypeId == 34 then
+				return "Audio"
+			else
+				return "Model"
+			end
+		end
+
+		-------------------------------------------------------------------------
+		-- FUNGSI INSERT UTAMA (SISTEM FALLBACK INTELIJEN UNTUK WORKSPACE RESMI)
+		-------------------------------------------------------------------------
+		local function InsertAsset(assetId, category, statusTarget)
+			statusTarget.Text = "Working"
+			local stringId = tostring(assetId)
+
+			local successInfo, info = pcall(function() return MarketplaceService:GetProductInfo(assetId) end)
+			if successInfo and info then
+				category = GetCategoryFromAssetType(info.AssetTypeId)
+			else
+				if not category then category = "Model" end
+			end
+
+			-- Handler kalkulasi posisi Kamera Workspace jika dieksekusi di luar Studio Lite
+			local function SafeStudioFallback(obj)
+				if not obj then return end
+				local targetModel, isTemporary, tempContainer
+				if obj.ClassName == "Model" then
+					targetModel = obj
+					isTemporary = false
+				else
+					targetModel = Instance.new("Model")
+					obj.Parent = targetModel
+					tempContainer = targetModel
+					isTemporary = true
+				end
+
+				local currentCFrame, boundingSize = targetModel:GetBoundingBox()
+				local lowestYOffset = not targetModel.PrimaryPart and 0 or targetModel.PrimaryPart.Position.Y - boundingSize.Y / 2
+				local camCFrame = workspace.Camera.CFrame
+				local posX = math.floor((camCFrame.X + camCFrame.LookVector.X * 30) * 2) / 2
+				local posY = boundingSize.Y / 2 + lowestYOffset
+				local posZ = math.floor((camCFrame.Z + camCFrame.LookVector.Z * 30) * 2) / 2
+				
+				local calculatedPos = Vector3.new(posX, posY, posZ)
+				local raycastOrigin = Vector3.new(calculatedPos.X, camCFrame.Y, calculatedPos.Z)
+				local raycastResult = workspace:Raycast(raycastOrigin, Vector3.new(0, -camCFrame.Y, 0))
+				
+				if raycastResult then
+					local newY = raycastResult.Instance.Position.Y + raycastResult.Instance.Size.Y / 2 + boundingSize.Y / 2 + lowestYOffset
+					calculatedPos = Vector3.new(calculatedPos.X, newY, calculatedPos.Z)
+				end
+
+				targetModel:PivotTo(CFrame.new(calculatedPos) * currentCFrame.Rotation)
+
+				if isTemporary then
+					local finalObj = targetModel:GetChildren()[1]:Clone()
+					finalObj.Parent = workspace
+					if tempContainer then tempContainer:Destroy() end
+				else
+					targetModel.Parent = workspace
+					targetModel:MakeJoints()
+				end
+			end
+
+			-- JIKA ASSET ADALAH AUDIO
+			if category == "Audio" then
+				local sound = Instance.new("Sound")
+				sound.Name = (successInfo and info and info.Name) or "SoundAsset_" .. stringId
+				sound.SoundId = "rbxassetid://" .. stringId
+				sound.Volume = 0.5
+				sound.Parent = workspace
+				statusTarget.Text = "Berhasil!"
+				return
+			end
+
+			-- JIKA ASSET ADALAH DECAL
+			if category == "Decal" then
+				if GetSelection and SetSelection then
+					local currentSelection = nil
+					pcall(function() currentSelection = GetSelection:Invoke() end)
+					
+					if currentSelection and typeof(currentSelection) == "table" and #currentSelection >= 1 and currentSelection[1]:IsA("BasePart") then
+						local decal = Instance.new("Decal")
+						decal.Name = (successInfo and info and info.Name) or "Decal"
+						decal.Texture = "rbxthumb://type=Asset&id=" .. stringId .. "&w=420&h=420"
+						decal.Parent = currentSelection[1]
+						
+						task.wait(0.2)
+						pcall(function() SetSelection:Invoke({ decal }) end)
+						statusTarget.Text = "Berhasil!"
+					else
+						statusTarget.Text = "Select Part!"
+					end
+				else
+					-- Fallback jika dipanggil di game biasa tanpa panel selection Studio Lite
+					local decal = Instance.new("Decal")
+					decal.Name = (successInfo and info and info.Name) or "DecalAsset_" .. stringId
+					decal.Texture = "rbxassetid://" .. stringId
+					decal.Parent = workspace
+					statusTarget.Text = "Berhasil!"
+				end
+				return
+			end
+
+			-- JIKA ASSET ADALAH MODEL/LAINNYA (MEMAKAI METODE INSERTER REMOTES STUDIO LITE)
+			if LoadAssetRemote and LoadAssetRemote:IsA("RemoteFunction") then
+				local loadSuccess = false
+				pcall(function()
+					loadSuccess = LoadAssetRemote:InvokeServer(stringId)
+				end)
+
+				if loadSuccess then
+					local serverFolder = PlayerGui:WaitForChild(stringId, 5)
+					if serverFolder then
+						local assetClone = serverFolder:Clone()
+						local children = assetClone:GetChildren()
+						if #children == 0 then
+							local clientSuccess, clientObj = pcall(function() return game:GetObjects("rbxassetid://" .. assetId)[1] end)
+							if clientSuccess and clientObj then
+								SafeStudioFallback(clientObj)
+							else
+								assetClone.Parent = workspace
+							end
+						else
+							for _, obj in pairs(children) do
+								if obj.ClassName == "Folder" and ("Workspace Lighting MaterialService ReplicatedStorage ServerStorage ServerScriptService StarterGui StarterPack Teams SoundService StarterPlayer InsertService TextChatService"):find(obj.Name, 1, true) then
+									if obj.Name == "ServerStorage" then
+										for _, item in pairs(obj:GetChildren()) do item.Parent = _G.ss or game:GetService("ServerStorage") end
+									elseif obj.Name == "ServerScriptService" then
+										for _, item in pairs(obj:GetChildren()) do item.Parent = _G.sss or game:GetService("ServerScriptService") end
+									elseif obj.Name == "StarterPlayer" then
+										for _, inner in pairs(obj:GetChildren()) do
+											if inner.Name == "StarterPlayerScripts" or inner.Name == "StarterCharacterScripts" then
+												for _, scr in pairs(inner:GetChildren()) do
+													if not game.StarterPlayer[inner.Name]:FindFirstChild(scr.Name) then
+														scr.Parent = game.StarterPlayer[inner.Name]
+													end
+												end
+											else
+												inner.Parent = game.StarterPlayer
+											end
+										end
+									elseif obj.Name ~= "InsertService" and obj.Name ~= "TextChatService" then
+										for _, item in pairs(obj:GetChildren()) do item.Parent = game[obj.Name] end
+									end
+								elseif obj:IsA("PostEffect") or obj.ClassName == "Sky" then
+									obj.Parent = game.Lighting
+								else
+									SafeStudioFallback(obj)
+								end
+							end
+						end
+						assetClone:Destroy()
+						if ClearAssetRemote then pcall(function() ClearAssetRemote:InvokeServer(stringId) end) end
+						statusTarget.Text = "Berhasil!"
+					else
+						local clientSuccess, clientObj = pcall(function() return game:GetObjects("rbxassetid://" .. assetId)[1] end)
+						if clientSuccess and clientObj then
+							SafeStudioFallback(clientObj)
+							statusTarget.Text = "Berhasil!"
+						else
+							statusTarget.Text = "No Folder"
+						end
+					end
+				else
+					local clientSuccess, clientObj = pcall(function() return game:GetObjects("rbxassetid://" .. assetId)[1] end)
+					if clientSuccess and clientObj then
+						SafeStudioFallback(clientObj)
+						statusTarget.Text = "Berhasil!"
+					else
+						statusTarget.Text = "Gagal"
+					end
+				end
+			else
+				-- Jika dieksekusi di map non-Studio Lite, langsung panggil engine GetObjects resmi ke Workspace
+				local clientSuccess, clientObj = pcall(function() return game:GetObjects("rbxassetid://" .. assetId)[1] end)
+				if clientSuccess and clientObj then
+					SafeStudioFallback(clientObj)
+					statusTarget.Text = "Berhasil!"
+				else
+					statusTarget.Text = "No Remote"
+				end
+			end
+		end
+
+		-------------------------------------------------------------------------
+		-- RENDER LIST ASSET & AUTOMATIC SCROLL BAR CANVAS CALIBRATION
+		-------------------------------------------------------------------------
+		local function RenderAssets(searchQuery)
+			ClearList()
+			local targetList = SavedAssets[CurrentCategory] or {}
+			
+			-- Normalisasi kata kunci: Hapus spasi luar dan ubah ke lowercase agar pencarian nama fleksibel
+			local query = searchQuery and searchQuery:match("^%s*(.-)%s*$"):lower() or ""
+
+			local function UpdateCanvas()
+				local layout = ScrollingFrame:FindFirstChild("UIListLayout")
+				if layout then
+					ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y + 25)
+				end
+			end
+
+			for _, assetId in ipairs(targetList) do
+				task.spawn(function()
+					local success, info = pcall(function() return MarketplaceService:GetProductInfo(assetId) end)
+					if success and info then
+						-- VALIDASI KATA KUNCI FIX: Mencocokkan string nama atau ID secara parsial penuh
+						if query ~= "" and query ~= "cari asset.." then
+							local assetNameLower = info.Name:lower()
+							local assetIdStr = tostring(assetId)
+							
+							if not assetNameLower:find(query, 1, true) and not assetIdStr:find(query, 1, true) then
+								return -- Lewati asset jika tidak cocok sama sekali dengan nama atau ID
+							end
+						end
+
+						-- Clone manual berdasarkan struktur instansiasi baru Anda (LMG2L["Frame_11"])
+						local card = Instance.new("Frame")
+						card.BorderSizePixel = TemplateFrame.BorderSizePixel
+						card.BackgroundColor3 = TemplateFrame.BackgroundColor3
+						card.Size = TemplateFrame.Size
+						card.BorderColor3 = TemplateFrame.BorderColor3
+						card.Visible = true
+						card.Parent = ScrollingFrame
+						card.Name = "Asset_" .. assetId
+
+						-- Menyalin & menyelaraskan anak-anak objek template list baru Anda
+						local SalinButton = LMG2L["SalinButton_12"]:Clone()
+						SalinButton.Parent = card
+						SalinButton.Name = "SalinButton"
+
+						local InsertButton = LMG2L["InsertButton_13"]:Clone()
+						InsertButton.Parent = card
+						InsertButton.Name = "InsertButton"
+
+						local ImageAsset = LMG2L["ImageAsset_14"]:Clone()
+						ImageAsset.Parent = card
+						ImageAsset.Name = "ImageAsset"
+
+						local IdAsset = LMG2L["IdAsset_15"]:Clone()
+						IdAsset.Parent = card
+						IdAsset.Name = "IdAsset"
+
+						local ByPemilikAsset = LMG2L["ByPemilikAsset_16"]:Clone()
+						ByPemilikAsset.Parent = card
+						ByPemilikAsset.Name = "ByPemilikAsset"
+
+						local NameAsset = LMG2L["NameAsset_17"]:Clone()
+						NameAsset.Parent = card
+						NameAsset.Name = "NameAsset"
+
+						-- Memasukkan Data Text & Gambar Roblox API
+						NameAsset.TextWrapped = true
+						NameAsset.TextYAlignment = Enum.TextYAlignment.Top
+						NameAsset.Text = info.Name
+						ByPemilikAsset.Text = "By: " .. (info.Creator and info.Creator.Name or "Unknown")
+						IdAsset.Text = "ID: " .. tostring(assetId)
+
+						if CurrentCategory == "Decal" then
+							ImageAsset.Image = "rbxthumb://type=Asset&id=" .. assetId .. "&w=150&h=150"
+						elseif CurrentCategory == "Audio" then
+							ImageAsset.Image = "rbxassetid://16327318049" -- Gambar Ikon Audio bawaan
+						else
+							ImageAsset.Image = "rbxthumb://type=Asset&id=" .. assetId .. "&w=150&h=150"
+						end
+
+						SalinButton.MouseButton1Click:Connect(function()
+							setclipboard(tostring(assetId))
+							SalinButton.Text = "Tersalin!"
+							task.wait(1)
+							SalinButton.Text = "Salin"
+						end)
+
+						InsertButton.MouseButton1Click:Connect(function()
+							InsertAsset(assetId, CurrentCategory, InsertButton)
+							task.wait(1.5)
+							InsertButton.Text = "Insert"
+						end)
+
+						UpdateCanvas()
+					end
+				end)
+			end
+			
+			task.defer(function()
+				for i = 1, 5 do UpdateCanvas() task.wait(0.05) end
+			end)
+		end
+
+		local function SwitchTab(tabName)
+			CurrentCategory = tabName
+			ModelButton.BackgroundColor3 = COLOR_INACTIVE
+			DecalButton.BackgroundColor3 = COLOR_INACTIVE
+			AudioButton.BackgroundColor3 = COLOR_INACTIVE
+
+			if tabName == "Model" then ModelButton.BackgroundColor3 = COLOR_ACTIVE
+			elseif tabName == "Decal" then DecalButton.BackgroundColor3 = COLOR_ACTIVE
+			elseif tabName == "Audio" then AudioButton.BackgroundColor3 = COLOR_ACTIVE end
+			RenderAssets()
+		end
+
+		-------------------------------------------------------------------------
+		-- ACTION LISTENERS & EVENT HANDLERS
+		-------------------------------------------------------------------------
+		ModelButton.MouseButton1Click:Connect(function() SwitchTab("Model") end)
+		DecalButton.MouseButton1Click:Connect(function() SwitchTab("Decal") end)
+		AudioButton.MouseButton1Click:Connect(function() SwitchTab("Audio") end)
+
+		-- FUNGSIONALITAS 1: GET BUTTON (Murni Load langsung ID dari kolom ke Workspace)
+		GetButton.MouseButton1Click:Connect(function()
+			local inputText = GetAssetIdBox.Text
+			local cleanId = tonumber(inputText:match("%d+"))
+
+			if cleanId and tostring(cleanId) == inputText:match("%d+") then
+				GetButton.Text = "LOAD"
+				InsertAsset(cleanId, nil, GetButton)
+				task.wait(1.5)
+				GetButton.Text = "GET"
+				GetAssetIdBox.Text = "Masukan ID Asset .."
+			else
+				GetAssetIdBox.Text = "Harus ID Angka!"
+				task.wait(1.5)
+				GetAssetIdBox.Text = "Masukan ID Asset .."
+			end
+		end)
+
+		-- FUNGSIONALITAS 2: SEARCH BUTTON (Memfilter list internal secara real-time)
+		SearchButton.MouseButton1Click:Connect(function()
+			local inputText = SearchAssetBox.Text
+			if inputText == "" or inputText:lower() == "cari asset.." then
+				RenderAssets()
+			else
+				SearchButton.Text = "FIND"
+				RenderAssets(inputText)
+				task.wait(1)
+				SearchButton.Text = "CARI"
+			end
+		end)
+
+		-- Deteksi ketikan dinamis pada Search Box (Pencarian instan otomatis saat mengetik)
+		SearchAssetBox:GetPropertyChangedSignal("Text"):Connect(function()
+			local currentText = SearchAssetBox.Text
+			local lowerText = currentText:lower()
+			if currentText ~= "" and lowerText ~= "cari asset.." then
+				RenderAssets(currentText)
+			elseif currentText == "" or lowerText == "cari asset.." then
+				RenderAssets()
+			end
+		end)
+
+		-- FUNGSIONALITAS 3: SAVE BUTTON (Validasi ganda anti duplikasi data kembar)
+		SaveButton.MouseButton1Click:Connect(function()
+			local cleanId = tonumber(AssetIdBox.Text:match("%d+"))
+			if not cleanId then
+				AssetIdBox.Text = "Harus ID Angka!"
+				task.wait(1.5)
+				AssetIdBox.Text = "Masukan ID Asset.."
+				return
+			end
+
+			SaveButton.Text = "CHECKING"
+			
+			local isDuplicate = false
+			for _, assetList in pairs(SavedAssets) do
+				for _, id in ipairs(assetList) do
+					if tonumber(id) == cleanId then
+						isDuplicate = true
+						break
+					end
+				end
+				if isDuplicate then break end
+			end
+
+			if isDuplicate then
+				AssetIdBox.Text = "Sudah Ada!"
+				task.wait(1.5)
+				SaveButton.Text = "SAVE"
+				AssetIdBox.Text = "Masukan ID Asset.."
+				return
+			end
+
+			local success, info = pcall(function() return MarketplaceService:GetProductInfo(cleanId) end)
+
+			if success and info then
+				local cat = GetCategoryFromAssetType(info.AssetTypeId)
+				table.insert(SavedAssets[cat], cleanId)
+				SaveData()
+				SwitchTab(cat) 
+				AssetIdBox.Text = "Tersimpan!"
+			else
+				AssetIdBox.Text = "ID Gagal Validasi!"
+			end
+			
+			task.wait(2)
+			SaveButton.Text = "SAVE"
+			AssetIdBox.Text = "Masukan ID Asset.."
+		end)
+
+		-------------------------------------------------------------------------
+		-- INITIALIZATION RUN
+		-------------------------------------------------------------------------
+		SwitchTab("Model")
+	end)	
+end;
+task.spawn(C_1e);
